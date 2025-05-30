@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    font-size: 14px;
+    
+    @screen sm {
+      font-size: 15px;
+    }
+    
+    @screen md {
+      font-size: 16px;
+    }
+  }
+  
+  body {
+    @apply font-sans text-gray-800 bg-accent-50 overflow-x-hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif tracking-wide;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .btn-primary {
+    @apply bg-primary-500 hover:bg-primary-600 text-white font-medium py-2 sm:py-2.5 px-4 sm:px-6 text-sm sm:text-base rounded-md transition duration-300 ease-in-out transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  
+  .btn-secondary {
+    @apply bg-transparent border border-primary-500 text-primary-600 hover:bg-primary-50 font-medium py-2 sm:py-2.5 px-4 sm:px-6 text-sm sm:text-base rounded-md transition duration-300 ease-in-out transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  
+  .section-title {
+    @apply font-serif text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-secondary-800 mb-4 relative;
+  }
+  
+  .section-title::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-12 sm:w-16 h-1 bg-gold-500 mt-2;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300;
+  }
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+  
+  @screen sm {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  @screen lg {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+}
+
+.organic-shape {
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+}
+
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Consistent Spacing */
+.section-spacing {
+  @apply py-6 sm:py-8 md:py-12 lg:py-16;
+}
+
+.content-spacing {
+  @apply space-y-4 sm:space-y-6;
+}
+
+/* Responsive Images */
+.responsive-image {
+  @apply w-full h-40 sm:h-48 md:h-56 lg:h-64 object-cover;
+}
+
+/* Responsive Cards */
+.responsive-card {
+  @apply p-3 sm:p-4;
+}
+
+/* Responsive Grid Gaps */
+.responsive-grid {
+  @apply gap-3 sm:gap-4 md:gap-6;
+}
+
+/* Responsive Padding */
+.responsive-padding {
+  @apply p-3 sm:p-4 md:p-6;
+}
+
+/* Responsive Margins */
+.responsive-margin {
+  @apply my-3 sm:my-4 md:my-6;
+}
+
+/* Responsive Text */
+.responsive-text {
+  @apply text-sm sm:text-base;
+}
+
+.responsive-heading {
+  @apply text-lg sm:text-xl md:text-2xl lg:text-3xl;
+}
+
+/* Responsive Buttons */
+.responsive-button {
+  @apply text-sm sm:text-base px-3 sm:px-4 py-1.5 sm:py-2;
+}
+
+/* Responsive Form Elements */
+.responsive-input {
+  @apply p-2 sm:p-2.5 text-sm sm:text-base;
+}
+
+/* Responsive Icons */
+.responsive-icon {
+  @apply w-4 h-4 sm:w-5 sm:h-5;
+}
+
+/* Responsive Tables */
+.responsive-table {
+  @apply text-sm sm:text-base;
+}
+
+.responsive-table th,
+.responsive-table td {
+  @apply px-2 sm:px-4 py-2 sm:py-3;
+}
+
+/* Responsive Modal */
+.responsive-modal {
+  @apply p-4 sm:p-6 md:p-8 max-w-[90%] sm:max-w-[85%] md:max-w-[80%] lg:max-w-[75%];
+}
+
+/* Responsive Navigation */
+.responsive-nav {
+  @apply text-sm sm:text-base space-x-2 sm:space-x-4 md:space-x-6;
+}
+
+/* Responsive Filters */
+.responsive-filters {
+  @apply space-y-2 sm:space-y-3;
+}
+
+/* Responsive Product Details */
+.responsive-product-image {
+  @apply h-48 sm:h-64 md:h-80 lg:h-96;
+}
+
+.responsive-product-title {
+  @apply text-xl sm:text-2xl md:text-3xl;
+}
+
+.responsive-product-price {
+  @apply text-lg sm:text-xl md:text-2xl;
+}
+
+/* Responsive Cart */
+.responsive-cart-item {
+  @apply p-2 sm:p-3 md:p-4;
+}
+
+.responsive-cart-image {
+  @apply w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24;
+}
