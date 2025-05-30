@@ -234,7 +234,7 @@ const ContactPage: React.FC = () => {
                 style={{ border: 0 }}
                 allowFullScreen={true}
                 loading="lazy"
-                title="Miss Organo Location"
+                title="Organic Origin Location"
               ></iframe>
             </div>
           </div>

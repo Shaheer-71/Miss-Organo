@@ -42,7 +42,7 @@ const LoginPage: React.FC = () => {
         <div className="flex items-center justify-center mb-8">
           <Leaf className="w-10 h-10 text-primary-500 mr-2" />
           <h1 className="font-serif text-3xl font-medium text-secondary-800">
-            Miss Organo
+            Organic Origin
           </h1>
         </div>
 
@@ -107,12 +107,6 @@ const LoginPage: React.FC = () => {
           </button>
 
           <div className="text-center space-y-4">
-            <p className="text-gray-600">
-              Don't have an account?{' '}
-              <Link to="/register" className="text-primary-600 hover:text-primary-700">
-                Register here
-              </Link>
-            </p>
             <p className="text-gray-600">
               <Link to="/" className="text-primary-600 hover:text-primary-700">
                 Click here to go back to home

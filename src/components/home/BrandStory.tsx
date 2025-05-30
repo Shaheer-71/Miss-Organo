@@ -17,7 +17,7 @@ const BrandStory: React.FC = () => {
             <div className="relative z-10 w-full">
               <img
                 src="https://images.pexels.com/photos/6621462/pexels-photo-6621462.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Natural ingredients for Miss Organo products"
+                alt="Natural ingredients for Organic Origin products"
                 className="w-full h-[400px] object-cover rounded-lg shadow-lg"
               />
             </div>
@@ -35,10 +35,10 @@ const BrandStory: React.FC = () => {
           >
             <h2 className="section-title">Our Brand Story</h2>
             <p className="text-gray-700 mb-6">
-              Miss Organo was born from a passion for natural beauty and a commitment to environmental sustainability. Our journey began in a small kitchen, experimenting with botanical extracts and organic oils to create effective skincare solutions.
+              Organic Origin was born from a passion for natural beauty and a commitment to environmental sustainability. Our journey began in a small kitchen, experimenting with botanical extracts and organic oils to create effective skincare solutions.
             </p>
             <p className="text-gray-700">
-              Today, we continue to handcraft each product with the same dedication to quality and purity. We source our ingredients from certified organic farms, ensuring that every Miss Organo product delivers the finest natural care for your skin.
+              Today, we continue to handcraft each product with the same dedication to quality and purity. We source our ingredients from certified organic farms, ensuring that every Organic Origin product delivers the finest natural care for your skin.
             </p>
           </motion.div>
         </div>

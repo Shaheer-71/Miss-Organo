@@ -24,7 +24,7 @@ const HeroSection: React.FC = () => {
               NATURAL BEAUTY ESSENTIALS
             </span>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-secondary-800 mb-6 leading-tight">
-              Experience the Power of Nature with <span className="text-primary-500">Miss Organo</span>
+              Experience the Power of Nature with <span className="text-primary-500">Organic Origin</span>
             </h1>
             <p className="text-gray-700 text-lg mb-8 max-w-xl">
               Discover our premium range of organic cosmetics made with carefully sourced ingredients that nourish your skin and respect the environment.
@@ -49,7 +49,7 @@ const HeroSection: React.FC = () => {
             <div className="organic-shape overflow-hidden bg-white p-2 shadow-xl">
               <img
                 src="https://images.pexels.com/photos/3321416/pexels-photo-3321416.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                alt="Miss Organo products display"
+                alt="Organic Origin products display"
                 className="w-full h-full object-cover rounded-2xl aspect-[4/3]"
               />
             </div>

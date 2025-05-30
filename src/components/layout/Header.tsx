@@ -63,7 +63,7 @@ const Header: React.FC = () => {
               <Leaf className="w-full h-full text-primary-500" />
             </div>
             <span className="font-serif text-xl md:text-2xl font-medium text-secondary-800">
-              Miss Organo
+              Organic Origin
             </span>
           </Link>
 
@@ -159,7 +159,7 @@ const Header: React.FC = () => {
                 <Link to="/" className="flex items-center" onClick={() => setIsOpen(false)}>
                   <Leaf className="w-8 h-8 text-primary-500 mr-2" />
                   <span className="font-serif text-xl font-medium text-secondary-800">
-                    Miss Organo
+                    Organic Origin
                   </span>
                 </Link>
                 <button 

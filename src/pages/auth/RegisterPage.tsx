@@ -50,7 +50,7 @@ const RegisterPage: React.FC = () => {
         <div className="flex items-center justify-center mb-8">
           <Leaf className="w-10 h-10 text-primary-500 mr-2" />
           <h1 className="font-serif text-3xl font-medium text-secondary-800">
-            Miss Organo
+            Organic Origin
           </h1>
         </div>
 

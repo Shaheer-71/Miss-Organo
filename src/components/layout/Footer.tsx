@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
           <div>
             <div className="flex items-center mb-4">
               <Leaf className="w-6 h-6 mr-2 text-accent-500" />
-              <span className="font-serif text-xl font-medium">Miss Organo</span>
+              <span className="font-serif text-xl font-medium">Organic Origin</span>
             </div>
             <p className="text-sm text-primary-100 mb-6">
               Premium organic cosmetics crafted with love for your skin and the planet.
@@ -79,7 +79,7 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="border-t border-primary-500 mt-12 pt-8 text-center text-sm text-primary-200">
-          <p>&copy; {new Date().getFullYear()} Miss Organo. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Organic Origin. All rights reserved.</p>
         </div>
       </div>
     </footer>

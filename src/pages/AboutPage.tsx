@@ -21,10 +21,10 @@ const AboutPage: React.FC = () => {
                 Crafting Natural Beauty with Love and Care
               </h1>
               <p className="text-gray-700 mb-6">
-                Miss Organo was founded with a simple mission: to create premium organic cosmetics that are as good for your skin as they are for the planet. Our journey began in a small kitchen, experimenting with botanical extracts and organic oils to create effective skincare solutions.
+                Organic Origin was founded with a simple mission: to create premium organic cosmetics that are as good for your skin as they are for the planet. Our journey began in a small kitchen, experimenting with botanical extracts and organic oils to create effective skincare solutions.
               </p>
               <p className="text-gray-700">
-                Today, we continue to handcraft each product with the same dedication to quality and purity, ensuring that every Miss Organo product delivers the finest natural care for your skin.
+                Today, we continue to handcraft each product with the same dedication to quality and purity, ensuring that every Organic Origin product delivers the finest natural care for your skin.
               </p>
             </motion.div>
             <motion.div
@@ -36,7 +36,7 @@ const AboutPage: React.FC = () => {
               <div className="relative z-10 rounded-lg overflow-hidden shadow-xl">
                 <img
                   src="https://images.pexels.com/photos/3735149/pexels-photo-3735149.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                  alt="Miss Organo founder with ingredients"
+                  alt="Organic Origin founder with ingredients"
                   className="w-full h-auto"
                 />
               </div>
@@ -66,7 +66,7 @@ const AboutPage: React.FC = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-gray-600 max-w-2xl mx-auto"
             >
-              At Miss Organo, we stand by our commitment to quality, sustainability, and ethical practices.
+              At Organic Origin, we stand by our commitment to quality, sustainability, and ethical practices.
             </motion.p>
           </div>
 
@@ -166,7 +166,7 @@ const AboutPage: React.FC = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-gray-600 max-w-2xl mx-auto"
             >
-              The evolution of Miss Organo from a small kitchen operation to a beloved organic cosmetics brand.
+              The evolution of Organic Origin from a small kitchen operation to a beloved organic cosmetics brand.
             </motion.p>
           </div>
 
@@ -206,7 +206,7 @@ const AboutPage: React.FC = () => {
                 <h3 className="font-serif text-xl font-medium text-secondary-800 mb-2">2019</h3>
                 <h4 className="font-medium text-primary-600 mb-3">Official Launch</h4>
                 <p className="text-gray-600">
-                  Miss Organo was officially launched with a small line of facial serums and moisturizers, quickly gaining local recognition.
+                  Organic Origin was officially launched with a small line of facial serums and moisturizers, quickly gaining local recognition.
                 </p>
               </motion.div>
 
@@ -256,7 +256,7 @@ const AboutPage: React.FC = () => {
                 <h3 className="font-serif text-xl font-medium text-secondary-800 mb-2">2024</h3>
                 <h4 className="font-medium text-primary-600 mb-3">Today</h4>
                 <p className="text-gray-600">
-                  Miss Organo continues to grow while maintaining our commitment to quality, sustainability, and our devoted community of customers.
+                  Organic Origin continues to grow while maintaining our commitment to quality, sustainability, and our devoted community of customers.
                 </p>
               </motion.div>
               <div className="md:col-start-2 hidden md:block"></div>

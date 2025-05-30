@@ -30,7 +30,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onClose }) => {
         <div className="flex items-center gap-3">
           <Leaf className="w-8 h-8 text-primary-500" />
           <h2 className="font-serif text-2xl font-medium text-secondary-800">
-            Miss Organo
+            Organic Origin
           </h2>
           {onClose && (
             <button
