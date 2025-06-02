@@ -24,6 +24,7 @@ interface CheckoutInfo {
   email: string;
   phone: string;
   city: string;
+  address: string;
   state: string;
   zipCode: string;
 }
@@ -99,14 +100,15 @@ const useCartStore = create<CartState>()(
         try {
           const items = get().items;
           const products = useProductStore.getState().products;
-          
+          console.log('Checkout info received:', info);
+
           // Process each item in the cart as a separate order
           for (const item of items) {
             const product = products.find(p => p.product_id === item.productId);
             if (product) {
               const itemTotal = product.price * item.quantity;
-              
-              await useOrderStore.getState().addOrder({
+
+              const orderData = {
                 customer_name: info.name,
                 customer_email: info.email,
                 customer_phone: info.phone,
@@ -114,11 +116,14 @@ const useCartStore = create<CartState>()(
                 quantity: item.quantity,
                 status: 'Pending',
                 total_amount: itemTotal + SHIPPING_COST,
+                address: info.address,
                 city: info.city,
                 state: info.state,
                 zip_code: info.zipCode,
                 payment_method: 'COD'
-              });
+              };
+              console.log('Order data being sent:', orderData);
+              await useOrderStore.getState().addOrder(orderData);
             }
           }
 

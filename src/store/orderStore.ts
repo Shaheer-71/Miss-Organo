@@ -27,7 +27,7 @@ const useOrderStore = create<OrderState>((set, get) => ({
     }
   },
 
-  addOrder: async (orderData) => {
+  addOrder: async (orderData: Omit<Order, 'id' | 'order_id' | 'order_date'>) => {
     set({ isLoading: true, error: null });
     try {
       const order_id = uuidv4();

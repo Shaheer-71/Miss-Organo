@@ -1,3 +1,4 @@
+import { address } from 'framer-motion/client';
 import { supabase } from '../lib/supabase';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -26,6 +27,7 @@ export const orderService = {
           order_date: orderData.order_date,
           status: orderData.status,
           total_amount: orderData.total_amount,
+          address: orderData.address,
           city: orderData.city,
           state: orderData.state,
           zip_code: orderData.zip_code,

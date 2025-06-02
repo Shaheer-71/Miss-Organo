@@ -17,14 +17,11 @@ const Footer: React.FC = () => {
               Premium organic cosmetics crafted with love for your skin and the planet.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-primary-100 hover:text-accent-500 transition-colors duration-300">
+              <a href="https://www.instagram.com/organic_origin_official/" className="text-primary-100 hover:text-accent-500 transition-colors duration-300">
                 <Instagram size={20} />
               </a>
-              <a href="#" className="text-primary-100 hover:text-accent-500 transition-colors duration-300">
+              <a href="https://www.facebook.com/profile.php?id=61576937641520" className="text-primary-100 hover:text-accent-500 transition-colors duration-300">
                 <Facebook size={20} />
-              </a>
-              <a href="#" className="text-primary-100 hover:text-accent-500 transition-colors duration-300">
-                <Twitter size={20} />
               </a>
             </div>
           </div>

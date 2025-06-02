@@ -20,21 +20,22 @@ const CartModal: React.FC<CartModalProps> = ({ isOpen, onClose }) => {
     name: '',
     email: '',
     phone: '',
+    address : '',
     city: '',
-    state: '',
+    state: 'None',
     zipCode: ''
   });
 
   const { items, removeItem, updateQuantity, getTotal, checkout } = useCartStore();
   const products = useProductStore(state => state.products);
 
-  const cartItems = items.map(item => {
-    const product = products.find(p => p.id === item.productId);
-    return {
-      ...item,
-      product: product!
-    };
-  });
+const cartItems = items.map(item => {
+  const product = products.find(p => p.product_id === item.productId); 
+  return {
+    ...item,
+    product: product!,
+  };
+});
 
   const formatPrice = (amount: number) => {
     return `PKR ${amount.toLocaleString('en-PK')}`;
@@ -145,7 +146,7 @@ const CartModal: React.FC<CartModalProps> = ({ isOpen, onClose }) => {
                             </p>
                             <div className="flex items-center mt-3">
                               <button
-                                onClick={() => updateQuantity(product.id, Math.max(0, quantity - 1))}
+                                onClick={() => updateQuantity(product.product_id, Math.max(0, quantity - 1))}
                                 className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-200 transition-colors"
                               >
                                 -
@@ -154,7 +155,7 @@ const CartModal: React.FC<CartModalProps> = ({ isOpen, onClose }) => {
                                 {quantity}
                               </span>
                               <button
-                                onClick={() => updateQuantity(product.id, quantity + 1)}
+                                onClick={() => updateQuantity(product.product_id, quantity + 1)}
                                 className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-200 transition-colors"
                               >
                                 +
@@ -162,7 +163,7 @@ const CartModal: React.FC<CartModalProps> = ({ isOpen, onClose }) => {
                             </div>
                           </div>
                           <button
-                            onClick={() => removeItem(product.id)}
+                            onClick={() => removeItem(product.product_id)}
                             className="p-2 text-gray-400 hover:text-red-500 transition-colors"
                           >
                             <X className="w-5 h-5" />
@@ -263,6 +264,19 @@ const CartModal: React.FC<CartModalProps> = ({ isOpen, onClose }) => {
                     <div className="space-y-4">
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">
+                          Address
+                        </label>
+                        <input
+                          type="text"
+                          required
+                          value={checkoutInfo.address}
+                          onChange={(e) => setCheckoutInfo({ ...checkoutInfo, address: e.target.value })}
+                          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-primary-400"
+                          placeholder="Enter address"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
                           City
                         </label>
                         <input
@@ -274,22 +288,10 @@ const CartModal: React.FC<CartModalProps> = ({ isOpen, onClose }) => {
                           placeholder="Enter city"
                         />
                       </div>
+                
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">
-                          State
-                        </label>
-                        <input
-                          type="text"
-                          required
-                          value={checkoutInfo.state}
-                          onChange={(e) => setCheckoutInfo({ ...checkoutInfo, state: e.target.value })}
-                          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-primary-400"
-                          placeholder="Enter state"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
-                          ZIP Code
+                          ZIP Code ( optional)
                         </label>
                         <input
                           type="text"

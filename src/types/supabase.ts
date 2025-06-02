@@ -115,14 +115,17 @@ export interface Database {
           updated_at?: string
         }
       }
-      orders: {
+orders: {
         Row: {
           id: string
           order_id: string
           customer_name: string
           email: string
           phone: string
-          shipping_address: Json
+          address: string
+          city: string
+          state: string
+          zip_code: string
           payment_method: string
           status: 'Pending' | 'Fulfilled' | 'Cancelled' | 'Dispatched'
           total_amount: number
@@ -138,7 +141,10 @@ export interface Database {
           customer_name: string
           email: string
           phone: string
-          shipping_address: Json
+          address: string
+          city: string
+          state: string
+          zip_code: string
           payment_method: string
           status?: 'Pending' | 'Fulfilled' | 'Cancelled' | 'Dispatched'
           total_amount: number
@@ -154,7 +160,10 @@ export interface Database {
           customer_name?: string
           email?: string
           phone?: string
-          shipping_address?: Json
+          address?: string
+          city?: string
+          state?: string
+          zip_code?: string
           payment_method?: string
           status?: 'Pending' | 'Fulfilled' | 'Cancelled' | 'Dispatched'
           total_amount?: number

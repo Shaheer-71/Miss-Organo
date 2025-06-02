@@ -78,7 +78,7 @@ const ProductDetailPage: React.FC = () => {
 
   const handleAddToCart = () => {
     for (let i = 0; i < quantity; i++) {
-      addToCart(product.id);
+      addToCart(product.product_id);
     }
     setIsCartOpen(true);
   };
