@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, ShoppingBag, Search, Leaf, User, LogOut } from 'lucide-react';
+import { Menu, X, ShoppingBag, Leaf, User, LogOut } from 'lucide-react';
 import useAuthStore from '../../store/authStore';
 import useCartStore from '../../store/cartStore';
 import CartModal from '../cart/CartModal';
