@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 
 const BrandStory: React.FC = () => {
   return (
-    <section className="py-16 bg-accent-50">
-      <div className="container-custom">
+    <section className="py-16 bg-gradient-to-b from-primary-50 to-accent-50">
+      <div className="container-custom ">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
           {/* Image */}
           <motion.div

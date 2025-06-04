@@ -6,7 +6,7 @@ const HeroSection: React.FC = () => {
   return (
     <section className="min-h-screen relative flex items-center">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-primary-50 to-accent-50 -z-10" />
+      <div className="absolute inset-0 bg-primary-50 -z-10" />
       
       {/* Decorative shapes */}
       <div className="absolute top-1/4 right-0 w-64 h-64 bg-primary-200 opacity-20 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl -z-10" />

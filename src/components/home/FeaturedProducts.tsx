@@ -36,7 +36,7 @@ const FeaturedProducts: React.FC = () => {
   };
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-white ">
       <div className="container-custom">
         <div className="text-center mb-12">
           <motion.h2

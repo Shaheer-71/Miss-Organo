@@ -56,26 +56,26 @@ const useAnalyticsStore = create<AnalyticsState>((set, get) => ({
       total: orders.length,
       pending: orders.filter(o => o.status === 'Pending').length,
       processing: orders.filter(o => o.status === 'Dispatched').length,
-      completed: orders.filter(o => o.status === 'Completed').length,
+      completed: orders.filter(o => o.status === 'Fulfilled').length,
       cancelled: orders.filter(o => o.status === 'Cancelled').length
     };
   },
 
   getSalesGrowth: () => {
     const orders = useOrderStore.getState().orders
-      .filter(order => order.status === 'Completed');
-      
+      .filter(order => order.status === 'Fulfilled');
+
     const now = new Date();
     const lastMonth = new Date(now.getFullYear(), now.getMonth() - 1, 1);
-    
-    const currentMonthOrders = orders.filter(order => 
+
+    const currentMonthOrders = orders.filter(order =>
       new Date(order.created_at) >= lastMonth
     );
-    
+
     const previousMonthOrders = orders.filter(order => {
       const orderDate = new Date(order.created_at);
       return orderDate >= new Date(lastMonth.getFullYear(), lastMonth.getMonth() - 1, 1) &&
-             orderDate < lastMonth;
+        orderDate < lastMonth;
     });
 
     const currentRevenue = currentMonthOrders.reduce((sum, order) => sum + order.total_amount, 0);

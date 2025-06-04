@@ -11,10 +11,10 @@ const HomePage: React.FC = () => {
     <div>
       <HeroSection />
       
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-200 to-transparent" />
+      <div className="w-full h-px " />
       
       {/* Benefits Section */}
-      <section className="py-16">
+      <section className="py-16 bg-gradient-to-b from-primary-50 to-accent-50">
         <div className="container-custom">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <motion.div

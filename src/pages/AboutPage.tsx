@@ -4,9 +4,9 @@ import { Leaf, ShieldCheck, HeartHandshake, BadgeCheck } from 'lucide-react';
 
 const AboutPage: React.FC = () => {
   return (
-    <div className="pt-24 pb-16">
+    <div className="pt-24 pb-16 bg-gradient-to-b from-primary-50 to-accent-50">
       {/* Hero Section */}
-      <section className="bg-primary-50 py-16">
+      <section className=" py-16">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -47,7 +47,7 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Values Section */}
-      <section className="py-16 bg-white">
+      {/* <section className="py-16 bg-white">
         <div className="container-custom">
           <div className="text-center mb-12">
             <motion.h2
@@ -76,7 +76,7 @@ const AboutPage: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="bg-accent-50 p-6 rounded-lg text-center"
+              className="bg-gradient-to-b from-primary-50 to-accent-50 p-6 rounded-lg text-center"
             >
               <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Leaf className="w-8 h-8 text-primary-600" />
@@ -94,7 +94,7 @@ const AboutPage: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="bg-accent-50 p-6 rounded-lg text-center"
+              className="bg-gradient-to-b from-primary-50 to-accent-50 p-6 rounded-lg text-center"
             >
               <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <ShieldCheck className="w-8 h-8 text-primary-600" />
@@ -112,7 +112,7 @@ const AboutPage: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="bg-accent-50 p-6 rounded-lg text-center"
+              className="bg-gradient-to-b from-primary-50 to-accent-50 p-6 rounded-lg text-center"
             >
               <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <HeartHandshake className="w-8 h-8 text-primary-600" />
@@ -130,7 +130,7 @@ const AboutPage: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="bg-accent-50 p-6 rounded-lg text-center"
+              className="bg-gradient-to-b from-primary-50 to-accent-50 p-6 rounded-lg text-center"
             >
               <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <BadgeCheck className="w-8 h-8 text-primary-600" />
@@ -144,7 +144,7 @@ const AboutPage: React.FC = () => {
             </motion.div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Journey Timeline */}
       <section className="py-16 bg-accent-50">

@@ -21,6 +21,11 @@ export interface Product {
   is_active: boolean;
   created_at: string;
   updated_at: string;
+  category: string;
+  discount: number;
+  image : string;
+  isNew : boolean;
+  howToUse : string;
 }
 
 export interface Review {
@@ -43,12 +48,14 @@ export interface Order {
   product_id: string;
   quantity: number;
   order_date: string;
-  status: 'Pending' | 'Completed' | 'Cancelled' | 'Dispatched';
+  status: 'Pending' | 'Fulfilled' | 'Cancelled' | 'Dispatched';
   total_amount: number;
   city: string;
   state: string;
   zip_code: string;
   payment_method: string;
+  created_at : string;
+  address:string;
 }
 
 export interface User {

@@ -54,8 +54,8 @@ const DashboardPage: React.FC = () => {
         label: 'Revenue',
         data: [3000, 3500, 4200, 4800, 5100, 6000],
         fill: true,
-        backgroundColor: 'rgba(138, 154, 91, 0.1)',
-        borderColor: 'rgba(138, 154, 91, 0.8)',
+        backgroundColor: 'rgba(0, 152, 159, 0.1)',
+        borderColor: 'rgba(0, 152, 159, 0.8)',
         tension: 0.4
       }
     ]
@@ -68,8 +68,8 @@ const DashboardPage: React.FC = () => {
       {
         label: 'Revenue',
         data: stats.topProducts.map(product => product.sales),
-        backgroundColor: 'rgba(138, 154, 91, 0.2)',
-        borderColor: 'rgba(138, 154, 91, 0.8)',
+        backgroundColor: 'rgba(0, 152, 159, 0.1)',
+        borderColor: 'rgba(0, 152, 159, 0.8)',
         borderWidth: 1
       }
     ]
@@ -292,10 +292,10 @@ const DashboardPage: React.FC = () => {
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full
-                      ${order.status === 'Completed' ? 'bg-green-100 text-green-800' : 
+                      ${order.status === 'Completed' ? 'bg-green-100 text-green-800' :
                         order.status === 'Pending' ? 'bg-yellow-100 text-yellow-800' :
-                        order.status === 'Dispatched' ? 'bg-blue-100 text-blue-800' :
-                        'bg-red-100 text-red-800'}`}>
+                          order.status === 'Dispatched' ? 'bg-blue-100 text-blue-800' :
+                            'bg-red-100 text-red-800'}`}>
                       {order.status}
                     </span>
                   </td>
