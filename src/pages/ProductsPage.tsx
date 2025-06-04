@@ -31,14 +31,12 @@ const ProductsPage: React.FC = () => {
   useEffect(() => {
     let result = [...products];
     
-    // Apply category filter
     if (filters.categories.length > 0) {
       result = result.filter(product => 
         product.categories.some(category => filters.categories.includes(category))
       );
     }
     
-    // Apply price filter
     if (filters.priceRange) {
       const range = priceRanges.find(r => r.id === filters.priceRange);
       if (range) {
@@ -49,7 +47,6 @@ const ProductsPage: React.FC = () => {
       }
     }
     
-    // Apply sorting
     switch (sortOption) {
       case 'priceAsc':
         result.sort((a, b) => a.price - b.price);
@@ -61,10 +58,13 @@ const ProductsPage: React.FC = () => {
         result.sort((a, b) => (a.type === 'New Product' && b.type !== 'New Product') ? -1 : 1);
         break;
       case 'rating':
-        result.sort((a, b) => b.rating - a.rating);
+        result.sort((a, b) => {
+        const aRating = a.rating ?? 0;
+        const bRating = b.rating ?? 0;
+        return bRating - aRating; 
+      });
         break;
       default:
-        // Featured - prioritize featured and best sellers
         result.sort((a, b) => {
           if (a.type === 'Featured Product' && b.type !== 'Featured Product') return -1;
           if (a.type !== 'Featured Product' && b.type === 'Featured Product') return 1;

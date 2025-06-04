@@ -78,7 +78,7 @@ const useProductStore = create<ProductState>()(
         if (product) {
           const newType = product.type === 'Best Seller' ? null : 'Best Seller';
           await productService.updateProduct(productId, { ...product, type: newType });
-          await get().fetchProducts(); // Refresh products after update
+          await get().fetchProducts(); 
         }
       },
     }),

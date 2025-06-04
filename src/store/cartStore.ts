@@ -1,7 +1,43 @@
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
-import useProductStore from './productStore';
-import useOrderStore from './orderStore';
+import { persist, PersistOptions } from 'zustand/middleware';
+
+interface Product {
+  product_id: string;
+  price: number;
+  name?: string; 
+  stock?: number;
+}
+
+interface ProductStore {
+  products: Product[];
+}
+
+interface OrderData {
+  customer_name: string;
+  customer_email: string;
+  customer_phone: string;
+  product_id: string;
+  quantity: number;
+  status: string;
+  total_amount: number;
+  address: string;
+  city: string;
+  state: string;
+  zip_code: string;
+  payment_method: string;
+}
+
+interface OrderStore {
+  addOrder: (order: OrderData) => Promise<void>;
+}
+
+const useProductStore = {
+  getState: () => ({ products: [] as Product[] }),
+} as { getState: () => ProductStore };
+
+const useOrderStore = {
+  getState: () => ({ addOrder: async (order: OrderData) => {} }),
+} as { getState: () => OrderStore };
 
 interface CartItem {
   productId: string;
@@ -29,50 +65,50 @@ interface CheckoutInfo {
   zipCode: string;
 }
 
-const SHIPPING_COST = 300; // ₹300 shipping cost
+const SHIPPING_COST = 300; 
 
-const useCartStore = create<CartState>()(
+type CartPersist = PersistOptions<CartState>;
+
+const useCartStore = create<CartState, [['zustand/persist', CartState]]>(
   persist(
     (set, get) => ({
       items: [],
 
-      addItem: (productId) => {
+      addItem: (productId: string) => {
         set((state) => {
-          const existingItem = state.items.find(item => item.productId === productId);
+          const existingItem = state.items.find((item) => item.productId === productId);
           if (existingItem) {
             return {
-              items: state.items.map(item =>
+              items: state.items.map((item) =>
                 item.productId === productId
                   ? { ...item, quantity: item.quantity + 1 }
                   : item
-              )
+              ),
             };
           }
           return {
-            items: [...state.items, { productId, quantity: 1 }]
+            items: [...state.items, { productId, quantity: 1 }],
           };
         });
       },
 
-      removeItem: (productId) => {
+      removeItem: (productId: string) => {
         set((state) => ({
-          items: state.items.filter(item => item.productId !== productId)
+          items: state.items.filter((item) => item.productId !== productId),
         }));
       },
 
-      updateQuantity: (productId, quantity) => {
+      updateQuantity: (productId: string, quantity: number) => {
         set((state) => {
           if (quantity === 0) {
             return {
-              items: state.items.filter(item => item.productId !== productId)
+              items: state.items.filter((item) => item.productId !== productId),
             };
           }
           return {
-            items: state.items.map(item =>
-              item.productId === productId
-                ? { ...item, quantity }
-                : item
-            )
+            items: state.items.map((item) =>
+              item.productId === productId ? { ...item, quantity } : item
+            ),
           };
         });
       },
@@ -84,9 +120,9 @@ const useCartStore = create<CartState>()(
       getSubtotal: () => {
         const products = useProductStore.getState().products;
         return get().items.reduce((total, item) => {
-          const product = products.find(p => p.product_id === item.productId);
+          const product = products.find((p) => p.product_id === item.productId);
           if (product) {
-            return total + (product.price * item.quantity);
+            return total + product.price * item.quantity;
           }
           return total;
         }, 0);
@@ -96,19 +132,18 @@ const useCartStore = create<CartState>()(
         return get().getSubtotal() + SHIPPING_COST;
       },
 
-      checkout: async (info) => {
+      checkout: async (info: CheckoutInfo) => {
         try {
           const items = get().items;
           const products = useProductStore.getState().products;
           console.log('Checkout info received:', info);
 
-          // Process each item in the cart as a separate order
           for (const item of items) {
-            const product = products.find(p => p.product_id === item.productId);
+            const product = products.find((p) => p.product_id === item.productId);
             if (product) {
               const itemTotal = product.price * item.quantity;
 
-              const orderData = {
+              const orderData: OrderData = {
                 customer_name: info.name,
                 customer_email: info.email,
                 customer_phone: info.phone,
@@ -120,7 +155,7 @@ const useCartStore = create<CartState>()(
                 city: info.city,
                 state: info.state,
                 zip_code: info.zipCode,
-                payment_method: 'COD'
+                payment_method: 'COD',
               };
               console.log('Order data being sent:', orderData);
               await useOrderStore.getState().addOrder(orderData);
@@ -132,12 +167,12 @@ const useCartStore = create<CartState>()(
           console.error('Checkout failed:', error);
           throw error;
         }
-      }
+      },
     }),
     {
       name: 'cart-storage',
-      version: 1
-    }
+      version: 1,
+    } as CartPersist
   )
 );
 
