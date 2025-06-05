@@ -7,4 +7,10 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
+  define: {
+    'import.meta.env.host': JSON.stringify(process.env.host),
+    'import.meta.env.key': JSON.stringify(process.env.key),
+    'import.meta.env.cloud': JSON.stringify(process.env.cloud),
+    'import.meta.env.preset': JSON.stringify(process.env.preset),
+  },
 });
