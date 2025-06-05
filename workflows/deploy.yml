@@ -6,20 +6,54 @@ on:
       - main
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
+    environment: .env
+
     steps:
-      - name: Checkout code
+      - name: 🛠 Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Deploy via SSH
-        uses: appleboy/ssh-action@v1.0.3
+      - name: ⚙ Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: 📦 Install Dependencies
+        run: npm install
+
+      - name: 📝 Create .env file
+        run: |
+          echo "host=${{ secrets.HOST }}" >> .env
+          echo "key=${{ secrets.KEY }}" >> .env
+          echo "cloud=${{ secrets.CLOUD }}" >> .env
+          echo "preset=${{ secrets.PRESET }}" >> .env
+
+      - name: 📜 Inspect .env file
+        run: cat .env  # Debug: Verify .env contents
+
+      - name: 🔨 Build Vite Project
+        run: npm run build
+
+      - name: 🔍 Verify Build Output
+        run: ls -la dist || echo "⚠ dist folder is missing or empty!"
+
+      - name: 🖥 Ensure Deployment Directory Exists on VPS
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOSTINGER_HOST }}
           username: ${{ secrets.HOSTINGER_USERNAME }}
           key: ${{ secrets.HOSTINGER_SSH_KEY }}
+          port: 22
           script: |
-            cd /var/www/organic-origin || mkdir -p /var/www/organic-origin && cd /var/www/organic-origin
-            git pull || git clone https://github.com/yourusername/your-repo.git .
-            npm install
-            npm run build
+            mkdir -p /var/www/organic-origin/dist
+
+      - name: 🚀 Deploy Build to VPS
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOSTINGER_HOST }}
+          username: ${{ secrets.HOSTINGER_USERNAME }}
+          key: ${{ secrets.HOSTINGER_SSH_KEY }}
+          port: 22
+          source: "dist/*"  # Only deploy dist/* (no .env needed for static site)
+          target: "/var/www/organic-origin"
