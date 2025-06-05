@@ -3,10 +3,12 @@ export const uploadService = {
     try {
       const formData = new FormData();
       formData.append('file', file);
-      formData.append('upload_preset', import.meta.env.preset);
+      formData.append('upload_preset', 'Miss-Organo-Preset');
+      // formData.append('upload_preset', import.meta.env.preset);
 
       const response = await fetch(
-        `https://api.cloudinary.com/v1_1/${import.meta.env.cloud}/image/upload`,
+        // `https://api.cloudinary.com/v1_1/${import.meta.env.cloud}/image/upload`,
+        `https://api.cloudinary.com/v1_1/dbg4yt0bz/image/upload`,
         {
           method: 'POST',
           body: formData
