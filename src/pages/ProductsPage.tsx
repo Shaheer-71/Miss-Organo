@@ -147,7 +147,7 @@ const ProductsPage: React.FC = () => {
               <p className="text-gray-600">
                 Showing <span className="font-medium">{filteredProducts.length}</span> products
               </p>
-              <div className="flex items-center">
+              {/* <div className="flex items-center">
                 <label htmlFor="sort" className="text-gray-600 mr-2">
                   Sort by:
                 </label>
@@ -163,7 +163,7 @@ const ProductsPage: React.FC = () => {
                   <option value="newest">Newest</option>
                   <option value="rating">Top Rated</option>
                 </select>
-              </div>
+              </div> */}
             </div>
 
             {filteredProducts.length === 0 ? (
