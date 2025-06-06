@@ -8,9 +8,9 @@ export default defineConfig({
     exclude: ['lucide-react'],
   },
   define: {
-    'import.meta.env.host': JSON.stringify(process.env.host),
-    'import.meta.env.key': JSON.stringify(process.env.key),
-    'import.meta.env.cloud': JSON.stringify(process.env.cloud),
-    'import.meta.env.preset': JSON.stringify(process.env.preset),
+    'import.meta.env.VITE_HOST': JSON.stringify(process.env.VITE_HOST),
+    'import.meta.env.VITE_KEY': JSON.stringify(process.env.VITE_KEY),
+    'import.meta.env.VITE_CLOUD': JSON.stringify(process.env.VITE_CLOUD),
+    'import.meta.env.VITE_PRESET': JSON.stringify(process.env.VITE_PRESET),
   },
 });

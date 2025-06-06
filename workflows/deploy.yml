@@ -1,4 +1,4 @@
-name: Deploy to Hostinger VPS
+name: Deploy to VITE_HOSTinger VPS
 
 on:
   push:
@@ -22,24 +22,6 @@ jobs:
       - name: 📦 Install Dependencies
         run: npm install
 
-      - name: 📝 Create .env file
-        run: |
-          echo "host=${{ secrets.host }}" >> .env
-          echo "key=${{ secrets.key }}" >> .env
-          echo "cloud=${{ secrets.cloud }}" >> .env
-          echo "preset=${{ secrets.preset }}" >> .env
-          if [ ! -f .env ]; then
-            echo "Error: .env file was not created"
-            exit 1
-          fi
-          if [ ! -s .env ]; then
-            echo "Error: .env file is empty"
-            exit 1
-          fi
-
-      - name: 📜 Inspect .env file
-        run: cat .env  # Debug: Verify .env contents
-
       - name: 🔨 Build Vite Project
         run: npm run build
 
@@ -49,9 +31,9 @@ jobs:
       - name: 🖥 Ensure Deployment Directory Exists on VPS
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.HOSTINGER_HOST }}
-          username: ${{ secrets.HOSTINGER_USERNAME }}
-          key: ${{ secrets.HOSTINGER_SSH_KEY }}
+          VITE_HOST: ${{ secrets.VITE_HOSTINGER_VITE_HOST }}
+          username: ${{ secrets.VITE_HOSTINGER_USERNAME }}
+          key: ${{ secrets.VITE_HOSTINGER_SSH_KEY }}
           port: 22
           script: |
             mkdir -p /var/www/organic-origin/dist
@@ -59,9 +41,9 @@ jobs:
       - name: 🚀 Deploy Build to VPS
         uses: appleboy/scp-action@master
         with:
-          host: ${{ secrets.HOSTINGER_HOST }}
-          username: ${{ secrets.HOSTINGER_USERNAME }}
-          key: ${{ secrets.HOSTINGER_SSH_KEY }}
+          VITE_HOST: ${{ secrets.VITE_HOSTINGER_VITE_HOST }}
+          username: ${{ secrets.VITE_HOSTINGER_USERNAME }}
+          key: ${{ secrets.VITE_HOSTINGER_SSH_KEY }}
           port: 22
-          source: "dist/*,.env"  # Include .env
+          source: "dist/*"
           target: "/var/www/organic-origin"
