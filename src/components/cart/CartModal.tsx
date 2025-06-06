@@ -10,7 +10,7 @@ interface CartModalProps {
   onClose: () => void;
 }
 
-const SHIPPING_COST = 300; // PKR 300 shipping cost
+const SHIPPING_COST = 300;
 
 const CartModal: React.FC<CartModalProps> = ({ isOpen, onClose }) => {
   const [step, setStep] = useState<'cart' | 'checkout'>('cart');

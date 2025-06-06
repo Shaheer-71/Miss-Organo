@@ -97,53 +97,61 @@ const Testimonials: React.FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className="bg-accent-50 p-8 rounded-lg shadow-lg h-[300px] flex items-center"
+            className="bg-accent-50 p-4 sm:p-6 md:p-8 rounded-lg shadow-lg min-h-[280px] sm:min-h-[300px] flex items-center"
           >
-            <div className="flex flex-col md:flex-row items-center gap-8">
-              <div className={`w-24 h-24 md:w-32 md:h-32 rounded-full flex items-center justify-center text-2xl font-medium ${getRandomColor(testimonials[currentIndex].name)}`}>
-                {getInitials(testimonials[currentIndex].name)}
-              </div>
-              <div className="flex-1">
-                <div className="flex mb-3">
-                  {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-gold-500 fill-gold-500" />
-                  ))}
+            <div className="flex flex-col items-center gap-4 sm:gap-6 md:gap-8 w-full">
+              {/* Avatar and Content Container */}
+              <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 md:gap-8 w-full">
+                {/* Avatar */}
+                <div className={`w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 rounded-full flex items-center justify-center text-lg sm:text-xl md:text-2xl font-medium flex-shrink-0 ${getRandomColor(testimonials[currentIndex].name)}`}>
+                  {getInitials(testimonials[currentIndex].name)}
                 </div>
-                <blockquote className="text-gray-700 italic mb-4 text-lg">
-                  "{testimonials[currentIndex].quote}"
-                </blockquote>
-                <div>
-                  <p className="font-serif text-lg font-medium text-secondary-800">
-                    {testimonials[currentIndex].name}
-                  </p>
-                  <p className="text-sm text-gray-600">{testimonials[currentIndex].role}</p>
+                
+                {/* Content */}
+                <div className="flex-1 text-center sm:text-left w-full">
+                  <div className="flex justify-center sm:justify-start mb-3">
+                    {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 text-gold-500 fill-gold-500" />
+                    ))}
+                  </div>
+                  <blockquote className="text-gray-700 italic mb-4 text-sm sm:text-base md:text-lg leading-relaxed">
+                    "{testimonials[currentIndex].quote}"
+                  </blockquote>
+                  <div>
+                    <p className="font-serif text-base sm:text-lg md:text-xl font-medium text-secondary-800">
+                      {testimonials[currentIndex].name}
+                    </p>
+                    <p className="text-xs sm:text-sm text-gray-600">{testimonials[currentIndex].role}</p>
+                  </div>
                 </div>
               </div>
             </div>
           </motion.div>
 
+          {/* Navigation Buttons */}
           <button
             onClick={prevTestimonial}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-gray-700 hover:text-primary-600 transition-colors duration-300"
+            className="absolute left-2 sm:left-0 top-1/2 -translate-y-1/2 sm:-translate-x-6 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-gray-700 hover:text-primary-600 transition-colors duration-300"
             aria-label="Previous testimonial"
           >
-            <ChevronLeft className="w-6 h-6" />
+            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
           <button
             onClick={nextTestimonial}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-gray-700 hover:text-primary-600 transition-colors duration-300"
+            className="absolute right-2 sm:right-0 top-1/2 -translate-y-1/2 sm:translate-x-6 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-gray-700 hover:text-primary-600 transition-colors duration-300"
             aria-label="Next testimonial"
           >
-            <ChevronRight className="w-6 h-6" />
+            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
         </div>
 
+        {/* Dots Indicator */}
         <div className="flex justify-center mt-6">
           {testimonials.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
-              className={`w-3 h-3 mx-1 rounded-full ${
+              className={`w-2 h-2 sm:w-3 sm:h-3 mx-1 rounded-full transition-colors duration-300 ${
                 index === currentIndex ? 'bg-primary-500' : 'bg-gray-300'
               }`}
               aria-label={`Go to testimonial ${index + 1}`}

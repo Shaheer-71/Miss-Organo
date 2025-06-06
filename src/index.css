@@ -55,10 +55,15 @@
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   
   @screen sm {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  @screen md {
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 1.5rem;
   }
@@ -185,4 +190,44 @@
 
 .responsive-cart-image {
   @apply w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24;
+}
+
+/* Mobile Breadcrumb */
+.mobile-breadcrumb {
+  @apply text-xs sm:text-sm;
+}
+
+.mobile-breadcrumb .breadcrumb-item {
+  @apply max-w-[80px] sm:max-w-none truncate;
+}
+
+/* Admin Table Responsive */
+.admin-table-container {
+  @apply overflow-x-auto;
+}
+
+.admin-table {
+  @apply min-w-full;
+}
+
+.admin-table th,
+.admin-table td {
+  @apply px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 text-xs sm:text-sm;
+}
+
+.admin-table .mobile-hidden {
+  @apply hidden sm:table-cell;
+}
+
+.admin-table .mobile-stack {
+  @apply block sm:hidden;
+}
+
+/* Timeline responsive */
+.timeline-mobile {
+  @apply block md:hidden;
+}
+
+.timeline-desktop {
+  @apply hidden md:block;
 }
