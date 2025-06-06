@@ -20,7 +20,7 @@ const CartModal: React.FC<CartModalProps> = ({ isOpen, onClose }) => {
     name: '',
     email: '',
     phone: '',
-    address : '',
+    address: '',
     city: '',
     state: 'None',
     zipCode: ''
@@ -29,19 +29,32 @@ const CartModal: React.FC<CartModalProps> = ({ isOpen, onClose }) => {
   const { items, removeItem, updateQuantity, getTotal, checkout } = useCartStore();
   const products = useProductStore(state => state.products);
 
-const cartItems = items.map(item => {
-  const product = products.find(p => p.product_id === item.productId); 
-  return {
-    ...item,
-    product: product!,
-  };
-});
+  // const cartItems = items.map(item => {
+  //   const product = products.find(p => p.product_id === item.productId); 
+  //   return {
+  //     ...item,
+  //     product: product!,
+  //   };
+  // });
+
+  const cartItems = items
+    .map(item => {
+      const product = products.find(p => p.product_id === item.productId);
+      return product ? { ...item, product } : null;
+    })
+    .filter(item => item !== null); // Remove null items
 
   const formatPrice = (amount: number) => {
     return `PKR ${amount.toLocaleString('en-PK')}`;
   };
 
+  // const subtotal = cartItems.reduce((total, item) => {
+  //   const itemTotal = item.product.price * item.quantity;
+  //   return total + itemTotal;
+  // }, 0);
+
   const subtotal = cartItems.reduce((total, item) => {
+    if (!item.product) return total; // Skip items with no product
     const itemTotal = item.product.price * item.quantity;
     return total + itemTotal;
   }, 0);
@@ -69,15 +82,15 @@ const cartItems = items.map(item => {
   return (
     <AnimatePresence>
       <div className="fixed inset-0 z-50 overflow-hidden">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="absolute inset-0 bg-black bg-opacity-50" 
-          onClick={onClose} 
+          className="absolute inset-0 bg-black bg-opacity-50"
+          onClick={onClose}
         />
-        
-        <motion.div 
+
+        <motion.div
           initial={{ x: '100%' }}
           animate={{ x: 0 }}
           exit={{ x: '100%' }}
@@ -88,7 +101,7 @@ const cartItems = items.map(item => {
             <div className="flex items-center justify-between p-6 border-b">
               <div className="flex items-center">
                 {step === 'checkout' && (
-                  <button 
+                  <button
                     onClick={() => setStep('cart')}
                     className="mr-4 p-2 hover:bg-gray-100 rounded-full transition-colors"
                   >
@@ -99,8 +112,8 @@ const cartItems = items.map(item => {
                   {step === 'cart' ? 'Shopping Cart' : 'Checkout'}
                 </h2>
               </div>
-              <button 
-                onClick={onClose} 
+              <button
+                onClick={onClose}
                 className="p-2 hover:bg-gray-100 rounded-full transition-colors"
               >
                 <X className="w-6 h-6 text-gray-600" />
@@ -125,50 +138,52 @@ const cartItems = items.map(item => {
                   ) : (
                     <div className="space-y-6">
                       {cartItems.map(({ product, quantity }) => (
-                        <motion.div 
-                          key={product.id}
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -20 }}
-                          className="flex items-center gap-4 bg-white p-4 rounded-lg shadow-sm border border-gray-100"
-                        >
-                          <img
-                            src={product.images[0]}
-                            alt={product.name}
-                            className="w-24 h-24 object-cover rounded-md"
-                          />
-                          <div className="flex-1">
-                            <h3 className="font-serif text-lg font-medium text-secondary-800 mb-1">
-                              {product.name}
-                            </h3>
-                            <p className="text-primary-600 font-medium">
-                              {formatPrice(product.price)}
-                            </p>
-                            <div className="flex items-center mt-3">
-                              <button
-                                onClick={() => updateQuantity(product.product_id, Math.max(0, quantity - 1))}
-                                className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-200 transition-colors"
-                              >
-                                -
-                              </button>
-                              <span className="mx-4 w-8 text-center font-medium">
-                                {quantity}
-                              </span>
-                              <button
-                                onClick={() => updateQuantity(product.product_id, quantity + 1)}
-                                className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-200 transition-colors"
-                              >
-                                +
-                              </button>
-                            </div>
-                          </div>
-                          <button
-                            onClick={() => removeItem(product.product_id)}
-                            className="p-2 text-gray-400 hover:text-red-500 transition-colors"
+                        product ? (
+                          <motion.div
+                            key={product.id}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            className="flex items-center gap-4 bg-white p-4 rounded-lg shadow-sm border border-gray-100"
                           >
-                            <X className="w-5 h-5" />
-                          </button>
-                        </motion.div>
+                            <img
+                              src={product.images[0]}
+                              alt={product.name}
+                              className="w-24 h-24 object-cover rounded-md"
+                            />
+                            <div className="flex-1">
+                              <h3 className="font-serif text-lg font-medium text-secondary-800 mb-1">
+                                {product.name}
+                              </h3>
+                              <p className="text-primary-600 font-medium">
+                                {formatPrice(product.price)}
+                              </p>
+                              <div className="flex items-center mt-3">
+                                <button
+                                  onClick={() => updateQuantity(product.product_id, Math.max(0, quantity - 1))}
+                                  className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-200 transition-colors"
+                                >
+                                  -
+                                </button>
+                                <span className="mx-4 w-8 text-center font-medium">
+                                  {quantity}
+                                </span>
+                                <button
+                                  onClick={() => updateQuantity(product.product_id, quantity + 1)}
+                                  className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-200 transition-colors"
+                                >
+                                  +
+                                </button>
+                              </div>
+                            </div>
+                            <button
+                              onClick={() => removeItem(product.product_id)}
+                              className="p-2 text-gray-400 hover:text-red-500 transition-colors"
+                            >
+                              <X className="w-5 h-5" />
+                            </button>
+                          </motion.div>
+                        ) : null
                       ))}
                     </div>
                   )}
@@ -288,7 +303,7 @@ const cartItems = items.map(item => {
                           placeholder="Enter city"
                         />
                       </div>
-                
+
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">
                           ZIP Code ( optional)
@@ -321,7 +336,7 @@ const cartItems = items.map(item => {
                       <span>{formatPrice(total)}</span>
                     </div>
                   </div>
-                  <button 
+                  <button
                     type="submit"
                     disabled={isProcessing}
                     className="w-full btn-primary py-3 flex items-center justify-center gap-2"
