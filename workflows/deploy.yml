@@ -28,22 +28,26 @@ jobs:
       - name: 🔍 Verify Build Output
         run: ls -la dist || echo "⚠ dist folder is missing or empty!"
 
+      - name: 🔍 Verify Build Output
+        run: ls -la dist || echo "⚠ dist folder is missing or empty!"
+
       - name: 🖥 Ensure Deployment Directory Exists on VPS
         uses: appleboy/ssh-action@master
         with:
-          VITE_HOST: ${{ secrets.VITE_HOSTINGER_VITE_HOST }}
-          username: ${{ secrets.VITE_HOSTINGER_USERNAME }}
-          key: ${{ secrets.VITE_HOSTINGER_SSH_KEY }}
+          host: ${{ secrets.HOSTINGER_HOST }}
+          username: ${{ secrets.HOSTINGER_USERNAME }}
+          key: ${{ secrets.HOSTINGER_SSH_KEY }}
           port: 22
           script: |
-            mkdir -p /var/www/organic-origin/dist
-
+            echo "✅ Connected to VPS"
+            mkdir -p /var/www/organic-origin
+            
       - name: 🚀 Deploy Build to VPS
         uses: appleboy/scp-action@master
         with:
-          VITE_HOST: ${{ secrets.VITE_HOSTINGER_VITE_HOST }}
-          username: ${{ secrets.VITE_HOSTINGER_USERNAME }}
-          key: ${{ secrets.VITE_HOSTINGER_SSH_KEY }}
+          host: ${{ secrets.HOSTINGER_HOST }}
+          username: ${{ secrets.HOSTINGER_USERNAME }}
+          key: ${{ secrets.HOSTINGER_SSH_KEY }}
           port: 22
           source: "dist/*"
           target: "/var/www/organic-origin"
