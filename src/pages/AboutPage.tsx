@@ -176,23 +176,6 @@ const AboutPage: React.FC = () => {
 
             {/* Timeline Items */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* 2018 */}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="md:col-start-1 md:text-right md:pr-12 relative"
-              >
-                <div className="hidden md:block absolute right-0 top-6 w-3 h-3 rounded-full bg-primary-500 transform translate-x-1.5"></div>
-                <h3 className="font-serif text-xl font-medium text-secondary-800 mb-2">2018</h3>
-                <h4 className="font-medium text-primary-600 mb-3">The Beginning</h4>
-                <p className="text-gray-600">
-                  Sarah Johnson started experimenting with natural skincare formulations in her kitchen, creating products for friends and family.
-                </p>
-              </motion.div>
-              <div className="md:col-start-2 hidden md:block"></div>
-
 
               {/* 2022 */}
               <div className="md:col-start-1 hidden md:block"></div>

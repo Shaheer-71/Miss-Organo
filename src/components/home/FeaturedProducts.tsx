@@ -36,7 +36,7 @@ const FeaturedProducts: React.FC = () => {
   };
 
   return (
-    <section className="py-16 bg-white ">
+    <section className="py-16 bg-white">
       <div className="container-custom">
         <div className="text-center mb-12">
           <motion.h2
@@ -59,11 +59,11 @@ const FeaturedProducts: React.FC = () => {
           </motion.p>
         </div>
 
-        <div className="relative px-12">
+        <div className="relative px-0 md:px-12">
           {canScrollLeft && (
             <button
               onClick={() => scroll('left')}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center text-gray-700 hover:text-primary-600 transition-colors duration-300"
+              className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center text-gray-700 hover:text-primary-600 transition-colors duration-300"
               aria-label="Previous products"
             >
               <ChevronLeft className="w-6 h-6" />
@@ -73,7 +73,7 @@ const FeaturedProducts: React.FC = () => {
           {canScrollRight && (
             <button
               onClick={() => scroll('right')}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center text-gray-700 hover:text-primary-600 transition-colors duration-300"
+              className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center text-gray-700 hover:text-primary-600 transition-colors duration-300"
               aria-label="Next products"
             >
               <ChevronRight className="w-6 h-6" />
