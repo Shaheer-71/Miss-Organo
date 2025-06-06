@@ -4,8 +4,8 @@ import { Database } from '../types/supabase';
 
 console.log('host:', import.meta.env.VITE_HOST);
 console.log('key:', import.meta.env.VITE_KEY);
-// console.log('cloud:', import.meta.env.cloud);
-// console.log('preset:', import.meta.env.preset);
+console.log('cloud:', import.meta.env.VITE_CLOUD);
+console.log('preset:', import.meta.env.VITE_PRESET);
 
 
 const supabaseUrl = import.meta.env.host || 'https://kubrirjahikgpwfzsepo.supabase.co';
