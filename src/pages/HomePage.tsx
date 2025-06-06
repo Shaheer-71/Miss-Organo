@@ -7,12 +7,6 @@ import { motion } from 'framer-motion';
 import { Leaf, ShieldCheck, Sprout, Recycle } from 'lucide-react';
 
 const HomePage: React.FC = () => {
-
-    console.log('host:', import.meta.env.VITE_HOST);
-    console.log('key:', import.meta.env.VITE_KEY);
-    console.log('cloud:', import.meta.env.VITE_CLOUD);
-    console.log('preset:', import.meta.env.VITE_PRESET);
-    
   return (
     <div>
       <HeroSection />

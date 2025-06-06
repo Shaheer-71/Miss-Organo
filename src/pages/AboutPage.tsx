@@ -212,20 +212,22 @@ const AboutPage: React.FC = () => {
               <div className="md:col-start-2 hidden md:block"></div>
 
               {/* 2024 */}
+              <div className="md:col-start-1 hidden md:block"></div>
               <motion.div
-                initial={{ opacity: 0, x: -20 }}
+                initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="md:col-start-1 md:text-right md:pr-12 relative"
+                className="md:col-start-2 md:pl-12 relative"
               >
-                <div className="hidden md:block absolute right-0 top-6 w-3 h-3 rounded-full bg-primary-500 transform translate-x-1.5"></div>
+                <div className="hidden md:block absolute left-0 top-6 w-3 h-3 rounded-full bg-primary-500 transform -translate-x-1.5"></div>
                 <h3 className="font-serif text-xl font-medium text-secondary-800 mb-2">2024</h3>
                 <h4 className="font-medium text-primary-600 mb-3">Today</h4>
                 <p className="text-gray-600">
                   Organic Origin continues to grow while maintaining our commitment to quality, sustainability, and our devoted community of customers.
                 </p>
               </motion.div>
+              
               <div className="md:col-start-2 hidden md:block"></div>
             </div>
           </div>
