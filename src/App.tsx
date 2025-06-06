@@ -22,6 +22,13 @@ const PrivateRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => 
   const navigate = useNavigate();
   const location = useLocation();
 
+
+  console.log('host:', import.meta.env.VITE_HOST);
+  console.log('key:', import.meta.env.VITE_KEY);
+  console.log('cloud:', import.meta.env.VITE_CLOUD);
+  console.log('preset:', import.meta.env.VITE_PRESET);
+
+
   useEffect(() => {
     if (!isLoading && (!isAuthenticated || user?.role !== 'admin')) {
       navigate('/admin/login', { state: { from: location } });
