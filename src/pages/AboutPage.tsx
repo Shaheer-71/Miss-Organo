@@ -172,7 +172,7 @@ const AboutPage: React.FC = () => {
 
           <div className="relative">
             {/* Timeline Line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-primary-100"></div>
+            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-primary-100 hidden md:block"></div>
 
             {/* Timeline Items */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -193,39 +193,6 @@ const AboutPage: React.FC = () => {
               </motion.div>
               <div className="md:col-start-2 hidden md:block"></div>
 
-              {/* 2019 */}
-              <div className="md:col-start-1 hidden md:block"></div>
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="md:col-start-2 md:pl-12 relative"
-              >
-                <div className="hidden md:block absolute left-0 top-6 w-3 h-3 rounded-full bg-primary-500 transform -translate-x-1.5"></div>
-                <h3 className="font-serif text-xl font-medium text-secondary-800 mb-2">2019</h3>
-                <h4 className="font-medium text-primary-600 mb-3">Official Launch</h4>
-                <p className="text-gray-600">
-                  Organic Origin was officially launched with a small line of facial serums and moisturizers, quickly gaining local recognition.
-                </p>
-              </motion.div>
-
-              {/* 2020 */}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="md:col-start-1 md:text-right md:pr-12 relative"
-              >
-                <div className="hidden md:block absolute right-0 top-6 w-3 h-3 rounded-full bg-primary-500 transform translate-x-1.5"></div>
-                <h3 className="font-serif text-xl font-medium text-secondary-800 mb-2">2020</h3>
-                <h4 className="font-medium text-primary-600 mb-3">Expansion</h4>
-                <p className="text-gray-600">
-                  Expanded product line to include body care and lip products. Moved to a dedicated production facility.
-                </p>
-              </motion.div>
-              <div className="md:col-start-2 hidden md:block"></div>
 
               {/* 2022 */}
               <div className="md:col-start-1 hidden md:block"></div>
@@ -243,6 +210,23 @@ const AboutPage: React.FC = () => {
                   Won multiple awards for our sustainable practices and product effectiveness. Began shipping internationally.
                 </p>
               </motion.div>
+
+              {/* 2020 */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="md:col-start-1 md:text-right md:pr-12 relative"
+              >
+                <div className="hidden md:block absolute right-0 top-6 w-3 h-3 rounded-full bg-primary-500 transform translate-x-1.5"></div>
+                <h3 className="font-serif text-xl font-medium text-secondary-800 mb-2">2023</h3>
+                <h4 className="font-medium text-primary-600 mb-3">Expansion</h4>
+                <p className="text-gray-600">
+                  Expanded product line to include body care and lip products. Moved to a dedicated production facility.
+                </p>
+              </motion.div>
+              <div className="md:col-start-2 hidden md:block"></div>
 
               {/* 2024 */}
               <motion.div
