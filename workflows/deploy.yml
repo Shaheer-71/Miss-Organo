@@ -1,14 +1,12 @@
-name: Deploy to VITE_HOSTinger VPS
+name: Deploy to Hostinger
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    environment: .env
 
     steps:
       - name: 🛠 Checkout Repository
@@ -28,9 +26,6 @@ jobs:
       - name: 🔍 Verify Build Output
         run: ls -la dist || echo "⚠ dist folder is missing or empty!"
 
-      - name: 🔍 Verify Build Output
-        run: ls -la dist || echo "⚠ dist folder is missing or empty!"
-
       - name: 🖥 Ensure Deployment Directory Exists on VPS
         uses: appleboy/ssh-action@master
         with:
@@ -41,7 +36,6 @@ jobs:
           script: |
             echo "✅ Connected to VPS"
             mkdir -p /var/www/organic-origin
-            
       - name: 🚀 Deploy Build to VPS
         uses: appleboy/scp-action@master
         with:
