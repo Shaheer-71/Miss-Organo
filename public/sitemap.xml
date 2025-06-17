@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://organicorigin.pk/</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://organicorigin.pk/og-image.jpg</image:loc>
+      <image:title>Organic Origin - Premium Organic Cosmetics Pakistan</image:title>
+      <image:caption>Pakistan's leading organic cosmetics brand offering natural skincare products</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://organicorigin.pk/products</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://organicorigin.pk/products-image.jpg</image:loc>
+      <image:title>Organic Cosmetics Products Collection Pakistan</image:title>
+      <image:caption>Complete range of organic skincare, lip care, hair care and body care products</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://organicorigin.pk/about</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://organicorigin.pk/contact</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- Product Category Pages -->
+  <url>
+    <loc>https://organicorigin.pk/products?category=Skin+Care</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://organicorigin.pk/products?category=Lip+Care</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://organicorigin.pk/products?category=Hair+Care</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://organicorigin.pk/products?category=Body+Care</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>

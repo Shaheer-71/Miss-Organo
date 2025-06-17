@@ -1,0 +1,34 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://organicorigin.pk/sitemap.xml
+
+# Specific pages
+Allow: /products
+Allow: /about
+Allow: /contact
+Allow: /products/*
+
+# Disallow admin pages
+Disallow: /admin/
+Disallow: /login
+Disallow: /register
+
+# Crawl delay
+Crawl-delay: 1
+
+# Additional directives for better SEO
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
