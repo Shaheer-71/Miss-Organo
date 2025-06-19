@@ -164,6 +164,35 @@ const ProductDetailPage: React.FC = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{product.name} - Organic Origin Pakistan | Premium Organic {product.categories[0]} Products</title>
+        <meta name="description" content={`${product.description} Buy premium organic ${product.categories[0].toLowerCase()} products from Organic Origin Pakistan. 100% natural ingredients, cruelty-free, dermatologically tested. Price: ${formatPrice(product.price)}`} />
+        <meta name="keywords" content={`${product.name}, Organic Origin, organic ${product.categories[0].toLowerCase()}, natural skincare Pakistan, organic cosmetics Pakistan, ${product.ingredients?.join(', ')}, premium beauty products Pakistan`} />
+        <link rel="canonical" href={`https://organicorigin.pk/products/${product.product_id}`} />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content={`${product.name} - Organic Origin Pakistan`} />
+        <meta property="og:description" content={`${product.description} Premium organic ${product.categories[0].toLowerCase()} from Pakistan's leading organic cosmetics brand.`} />
+        <meta property="og:url" content={`https://organicorigin.pk/products/${product.product_id}`} />
+        <meta property="og:type" content="product" />
+        <meta property="og:image" content={product.images[0]} />
+        <meta property="product:price:amount" content={product.price.toString()} />
+        <meta property="product:price:currency" content="PKR" />
+        <meta property="product:availability" content={product.stock > 0 ? "in stock" : "out of stock"} />
+        <meta property="product:brand" content="Organic Origin" />
+        <meta property="product:category" content={product.categories[0]} />
+        
+        {/* Twitter */}
+        <meta name="twitter:title" content={`${product.name} - Organic Origin Pakistan`} />
+        <meta name="twitter:description" content={`Premium organic ${product.categories[0].toLowerCase()} - ${formatPrice(product.price)} | Free delivery in Pakistan`} />
+        <meta name="twitter:image" content={product.images[0]} />
+        
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
+      </Helmet>
+
       <div className="pt-32 pb-16 bg-accent-50">
         <div className="container-custom">
           {/* Breadcrumb */}
