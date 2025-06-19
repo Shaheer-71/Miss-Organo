@@ -7,35 +7,35 @@ const testimonials = [
     id: 1,
     name: 'Ayesha Khan',
     role: 'Skincare Enthusiast',
-    quote: 'The natural ingredients in Organic Origin products have completely transformed my skincare routine. My skin feels more nourished and glowing than ever before. The quality and purity of their products is unmatched!',
+    quote: 'The natural ingredients in Organic Origin organicorigin products have completely transformed my skincare routine. My skin feels more nourished and glowing than ever before. The quality and purity of their products is unmatched!',
     rating: 5,
   },
   {
     id: 2,
     name: 'Fatima Ahmed',
     role: 'Beauty Blogger',
-    quote: 'Organic Origin ke products ne meri beauty routine ko bilkul badal diya hai. Skin itni soft aur glowing ho gayi hai, aur sab natural ingredients ki wajah se koi side effects bhi nahi hain. Highly recommended!',
+    quote: 'Organic Origin ke organicorigin products ne meri beauty routine ko bilkul badal diya hai. Skin itni soft aur glowing ho gayi hai, aur sab natural ingredients ki wajah se koi side effects bhi nahi hain. Highly recommended!',
     rating: 5,
   },
   {
     id: 3,
     name: 'Zainab Malik',
     role: 'Holistic Health Coach',
-    quote: 'I recommend Organic Origin to all my clients looking for natural beauty solutions. The results speak for themselves - healthy, glowing skin without any harmful chemicals. Their commitment to organic ingredients is truly commendable.',
+    quote: 'I recommend Organic Origin organicorigin to all my clients looking for natural beauty solutions. The results speak for themselves - healthy, glowing skin without any harmful chemicals. Their commitment to organic ingredients is truly commendable.',
     rating: 5,
   },
   {
     id: 4,
     name: 'Mehwish Siddiqui',
     role: 'Makeup Artist',
-    quote: 'Organic Origin ke organic products bohat zabardast hain. Skin naturally glowing hoti hai aur makeup bhi bohot accha blend hota hai. Pure natural ingredients hone ki wajah se skin ko nourish karte hain!',
+    quote: 'Organic Origin ke organicorigin products bohat zabardast hain. Skin naturally glowing hoti hai aur makeup bhi bohot accha blend hota hai. Pure natural ingredients hone ki wajah se skin ko nourish karte hain!',
     rating: 5,
   },
   {
     id: 5,
     name: 'Amna Hashmi',
     role: 'Dermatologist',
-    quote: 'As a dermatologist, I highly appreciate Organic Origin\'s commitment to using pure, natural ingredients. Their formulations are perfect for our climate and address common skin concerns effectively.',
+    quote: 'As a dermatologist, I highly appreciate Organic Origin organicorigin\'s commitment to using pure, natural ingredients. Their formulations are perfect for our climate and address common skin concerns effectively.',
     rating: 5,
   }
 ];
@@ -77,7 +77,7 @@ const Testimonials: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="section-title inline-block mx-auto mb-4 after:left-1/2 after:-translate-x-1/2"
           >
-            Customer Stories
+            Organicorigin Customer Stories
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -86,7 +86,7 @@ const Testimonials: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-gray-600 max-w-2xl mx-auto"
           >
-            Hear from our community about their experiences with Organic Origin products.
+            Hear from our community about their experiences with Organic Origin organicorigin products.
           </motion.p>
         </div>
 

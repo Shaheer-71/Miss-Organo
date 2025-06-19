@@ -127,7 +127,7 @@ const ContactPage: React.FC = () => {
                   <div>
                     <h3 className="font-medium text-secondary-800 mb-1">Email Us</h3>
                     <p className="text-gray-600">
-                      info@missorgano.com
+                      info@organicorigin.shop
                     </p>
                   </div>
                 </div>

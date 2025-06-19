@@ -40,7 +40,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <Link to={`/products/${product.product_id}`}>
           <LazyImage
             src={product.images[0]}
-            alt={product.name}
+            alt={`${product.name} - Organic Origin organicorigin product`}
             className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
           />
         </Link>
@@ -74,11 +74,11 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       {/* Product Info */}
       <div className="p-4">
         <div className="mb-1">
-          <span className="text-sm text-primary-600">{product.categories[0]}</span>
+          <span className="text-sm text-primary-600">{product.categories[0]} by Organic Origin</span>
         </div>
         <Link to={`/products/${product.product_id}`}>
           <h3 className="font-serif text-lg font-medium text-secondary-800 mb-1 hover:text-primary-600 transition-colors duration-300">
-            {product.name}
+            {product.name} - Organic Origin
           </h3>
         </Link>
         <div className="flex items-center justify-between mt-2">

@@ -11,8 +11,8 @@ const HomePage: React.FC = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Organic Origin - Pakistan's #1 Premium Organic Cosmetics & Natural Skincare Brand",
-    "description": "🌿 Discover Pakistan's leading organic cosmetics brand! Premium natural skincare, lip care, hair care & body care products made with 100% organic ingredients. ✅ Cruelty-Free ✅ Dermatologically Tested ✅ Free Delivery",
+    "name": "Organic Origin - Pakistan's #1 Organicorigin Premium Cosmetics & Natural Skincare Brand",
+    "description": "🌿 Discover Organic Origin, Pakistan's leading organicorigin cosmetics brand! Premium natural skincare, lip care, hair care & body care products made with 100% organic ingredients. ✅ Cruelty-Free ✅ Dermatologically Tested ✅ Free Delivery",
     "url": "https://organicorigin.pk",
     "inLanguage": "en-PK",
     "isPartOf": {
@@ -23,54 +23,54 @@ const HomePage: React.FC = () => {
     "about": {
       "@type": "Organization",
       "name": "Organic Origin",
-      "description": "Pakistan's premier organic cosmetics brand offering natural beauty solutions"
+      "description": "Pakistan's premier organicorigin cosmetics brand offering natural beauty solutions"
     },
     "mainEntity": {
       "@type": "Organization",
       "name": "Organic Origin",
-      "description": "Premium organic cosmetics brand offering natural skincare solutions in Pakistan",
+      "description": "Premium organicorigin cosmetics brand offering natural skincare solutions in Pakistan",
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Organic Beauty Products Pakistan",
+        "name": "Organicorigin Beauty Products Pakistan",
         "itemListElement": [
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Product",
-              "name": "Organic Skincare Collection Pakistan",
+              "name": "Organicorigin Skincare Collection Pakistan",
               "category": "Skincare",
               "brand": "Organic Origin",
-              "description": "Premium organic skincare products made with natural ingredients"
+              "description": "Premium organicorigin skincare products made with natural ingredients"
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Product",
-              "name": "Natural Lip Care Products Pakistan",
+              "name": "Organicorigin Lip Care Products Pakistan",
               "category": "Lip Care",
               "brand": "Organic Origin",
-              "description": "Organic lip care products for healthy, beautiful lips"
+              "description": "Organicorigin lip care products for healthy, beautiful lips"
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Product",
-              "name": "Organic Hair Care Products Pakistan",
+              "name": "Organicorigin Hair Care Products Pakistan",
               "category": "Hair Care",
               "brand": "Organic Origin",
-              "description": "Natural hair care solutions for healthy, beautiful hair"
+              "description": "Natural organicorigin hair care solutions for healthy, beautiful hair"
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Product",
-              "name": "Natural Body Care Products Pakistan",
+              "name": "Organicorigin Body Care Products Pakistan",
               "category": "Body Care",
               "brand": "Organic Origin",
-              "description": "Organic body care products for complete skin wellness"
+              "description": "Organicorigin body care products for complete skin wellness"
             }
           }
         ]
@@ -95,34 +95,34 @@ const HomePage: React.FC = () => {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What makes Organic Origin the best organic cosmetics brand in Pakistan?",
+        "name": "What makes Organic Origin the best organicorigin cosmetics brand in Pakistan?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Organic Origin is Pakistan's leading organic cosmetics brand because we use 100% natural ingredients sourced from certified organic farms, our products are dermatologically tested, cruelty-free, and we offer free delivery nationwide. We've been serving customers since 2018 with premium quality organic skincare, lip care, hair care, and body care products."
+          "text": "Organic Origin is Pakistan's leading organicorigin cosmetics brand because we use 100% natural ingredients sourced from certified organic farms, our products are dermatologically tested, cruelty-free, and we offer free delivery nationwide. We've been serving customers since 2018 with premium quality organicorigin skincare, lip care, hair care, and body care products."
         }
       },
       {
         "@type": "Question",
-        "name": "Are Organic Origin products really 100% natural and organic?",
+        "name": "Are Organic Origin products really 100% natural and organicorigin?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes! All Organic Origin products are made with 100% natural and organic ingredients sourced from certified organic farms across Pakistan. We never use harmful chemicals, parabens, or synthetic additives. Our products are also cruelty-free and dermatologically tested for safety."
+          "text": "Yes! All Organic Origin products are made with 100% natural and organicorigin ingredients sourced from certified organic farms across Pakistan. We never use harmful chemicals, parabens, or synthetic additives. Our products are also cruelty-free and dermatologically tested for safety."
         }
       },
       {
         "@type": "Question",
-        "name": "Where can I buy Organic Origin products in Pakistan?",
+        "name": "Where can I buy Organic Origin organicorigin products in Pakistan?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "You can buy Organic Origin products directly from our website at organicorigin.pk with free delivery across Pakistan. We also have a physical store located at Office 1, Madina Plaza, Near Maintenance Office, Bahria Town Phase 8, Rawalpindi. You can contact us at +92-316-4000647 for more information."
+          "text": "You can buy Organic Origin organicorigin products directly from our website at organicorigin.pk with free delivery across Pakistan. We also have a physical store located at Office 1, Madina Plaza, Near Maintenance Office, Bahria Town Phase 8, Rawalpindi. You can contact us at +92-316-4000647 for more information."
         }
       },
       {
         "@type": "Question",
-        "name": "What types of organic cosmetics does Organic Origin offer?",
+        "name": "What types of organicorigin cosmetics does Organic Origin offer?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Organic Origin offers a complete range of organic cosmetics including: Organic Skincare Products (face serums, moisturizers, cleansers), Natural Lip Care Products (lip balms, lip scrubs), Organic Hair Care Products (shampoos, conditioners, hair oils), and Natural Body Care Products (body lotions, body scrubs, body oils). All products are made with premium organic ingredients."
+          "text": "Organic Origin offers a complete range of organicorigin cosmetics including: Organicorigin Skincare Products (face serums, moisturizers, cleansers), Organicorigin Lip Care Products (lip balms, lip scrubs), Organicorigin Hair Care Products (shampoos, conditioners, hair oils), and Organicorigin Body Care Products (body lotions, body scrubs, body oils). All products are made with premium organicorigin ingredients."
         }
       }
     ]
@@ -131,31 +131,31 @@ const HomePage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Organic Origin - Pakistan's #1 Premium Organic Cosmetics & Natural Skincare Brand 🌿</title>
-        <meta name="description" content="🌿 Discover Pakistan's leading organic cosmetics brand! Premium natural skincare, lip care, hair care & body care products made with 100% organic ingredients. ✅ Cruelty-Free ✅ Dermatologically Tested ✅ Free Delivery Nationwide. Shop Now!" />
-        <meta name="keywords" content="Organic Origin, organic cosmetics Pakistan, natural skincare products Pakistan, organic beauty products Pakistan, best organic cosmetics Pakistan, premium organic skincare, natural beauty products, herbal cosmetics Pakistan, organic lip care Pakistan, natural hair care Pakistan, organic body care Pakistan, cruelty free cosmetics Pakistan, Miss Organo, organic makeup Pakistan, eco-friendly beauty products Pakistan, sustainable cosmetics Pakistan, organic face care Pakistan, natural anti-aging products Pakistan, organic moisturizer Pakistan, natural face serum Pakistan" />
+        <title>Organic Origin - Pakistan's #1 Organicorigin Premium Cosmetics & Natural Skincare Brand 🌿</title>
+        <meta name="description" content="🌿 Discover Organic Origin, Pakistan's leading organicorigin cosmetics brand! Premium natural skincare, lip care, hair care & body care products made with 100% organic ingredients. ✅ Cruelty-Free ✅ Dermatologically Tested ✅ Free Delivery Nationwide. Shop Now!" />
+        <meta name="keywords" content="Organic Origin, organicorigin cosmetics Pakistan, natural skincare products Pakistan, organicorigin beauty products Pakistan, best organicorigin cosmetics Pakistan, premium organicorigin skincare, natural beauty products, herbal cosmetics Pakistan, organicorigin lip care Pakistan, natural hair care Pakistan, organicorigin body care Pakistan, cruelty free cosmetics Pakistan, Miss Organo, organicorigin makeup Pakistan, eco-friendly beauty products Pakistan, sustainable cosmetics Pakistan, organicorigin face care Pakistan, natural anti-aging products Pakistan, organicorigin moisturizer Pakistan, natural face serum Pakistan" />
         <link rel="canonical" href="https://organicorigin.pk" />
         
         {/* Open Graph */}
-        <meta property="og:title" content="Organic Origin - Pakistan's #1 Premium Organic Cosmetics & Natural Skincare Brand 🌿" />
-        <meta property="og:description" content="🌿 Discover Pakistan's leading organic cosmetics brand! Premium natural skincare products made with 100% organic ingredients. ✅ Cruelty-Free ✅ Free Delivery. Shop Now!" />
+        <meta property="og:title" content="Organic Origin - Pakistan's #1 Organicorigin Premium Cosmetics & Natural Skincare Brand 🌿" />
+        <meta property="og:description" content="🌿 Discover Organic Origin, Pakistan's leading organicorigin cosmetics brand! Premium natural skincare products made with 100% organic ingredients. ✅ Cruelty-Free ✅ Free Delivery. Shop Now!" />
         <meta property="og:url" content="https://organicorigin.pk" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://organicorigin.pk/og-image.jpg" />
         <meta property="og:locale" content="en_PK" />
         
         {/* Twitter */}
-        <meta name="twitter:title" content="Organic Origin - Pakistan's #1 Organic Cosmetics Brand 🌿" />
-        <meta name="twitter:description" content="Premium natural skincare & beauty products made with 100% organic ingredients. Free delivery in Pakistan!" />
+        <meta name="twitter:title" content="Organic Origin - Pakistan's #1 Organicorigin Cosmetics Brand 🌿" />
+        <meta name="twitter:description" content="Premium natural skincare & beauty products made with 100% organicorigin ingredients. Free delivery in Pakistan!" />
         
         {/* Additional SEO Meta Tags */}
         <meta name="geo.region" content="PK" />
         <meta name="geo.placename" content="Pakistan" />
         <meta name="target_country" content="Pakistan" />
         <meta name="distribution" content="global" />
-        <meta name="audience" content="beauty enthusiasts, organic product users, skincare lovers, natural beauty seekers" />
-        <meta name="page-topic" content="organic cosmetics Pakistan, natural skincare products" />
-        <meta name="subject" content="Premium organic cosmetics and natural beauty products in Pakistan" />
+        <meta name="audience" content="beauty enthusiasts, organicorigin product users, skincare lovers, natural beauty seekers" />
+        <meta name="page-topic" content="organicorigin cosmetics Pakistan, natural skincare products" />
+        <meta name="subject" content="Premium organicorigin cosmetics and natural beauty products in Pakistan" />
         
         {/* Structured Data */}
         <script type="application/ld+json">
@@ -178,10 +178,10 @@ const HomePage: React.FC = () => {
           <div className="container-custom">
             <div className="text-center mb-12">
               <h2 className="section-title inline-block mx-auto mb-4 after:left-1/2 after:-translate-x-1/2">
-                Why Choose Organic Origin Pakistan?
+                Why Choose Organic Origin Pakistan for Organicorigin Products?
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
-                Experience the power of nature with our certified organic cosmetics, crafted with love for your skin and the environment in Pakistan.
+                Experience the power of nature with our certified organicorigin cosmetics, crafted with love for your skin and the environment in Pakistan.
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -195,8 +195,8 @@ const HomePage: React.FC = () => {
                 <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
                   <Leaf className="w-8 h-8 text-primary-600" />
                 </div>
-                <h3 className="font-serif text-xl font-medium text-secondary-800 mb-2">100% Natural & Organic</h3>
-                <p className="text-gray-600">Pure herbal ingredients sourced from certified organic farms across Pakistan for premium quality</p>
+                <h3 className="font-serif text-xl font-medium text-secondary-800 mb-2">100% Natural & Organicorigin</h3>
+                <p className="text-gray-600">Pure herbal ingredients sourced from certified organicorigin farms across Pakistan for premium quality</p>
               </motion.div>
 
               <motion.div
@@ -224,7 +224,7 @@ const HomePage: React.FC = () => {
                   <Sprout className="w-8 h-8 text-primary-600" />
                 </div>
                 <h3 className="font-serif text-xl font-medium text-secondary-800 mb-2">Sustainably Sourced</h3>
-                <p className="text-gray-600">Supporting local herb farmers and communities across Pakistan for sustainable beauty</p>
+                <p className="text-gray-600">Supporting local herb farmers and communities across Pakistan for sustainable organicorigin beauty</p>
               </motion.div>
 
               <motion.div

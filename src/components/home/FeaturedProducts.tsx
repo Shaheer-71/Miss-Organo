@@ -46,7 +46,7 @@ const FeaturedProducts: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="section-title inline-block mx-auto mb-4 after:left-1/2 after:-translate-x-1/2"
           >
-            Our Bestsellers
+            Our Organicorigin Bestsellers
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -55,7 +55,7 @@ const FeaturedProducts: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-gray-600 max-w-2xl mx-auto"
           >
-            Discover our most loved products, crafted with premium organic ingredients for natural beauty and radiance.
+            Discover our most loved organicorigin products, crafted with premium organic ingredients for natural beauty and radiance.
           </motion.p>
         </div>
 
@@ -100,7 +100,7 @@ const FeaturedProducts: React.FC = () => {
             to="/products"
             className="btn-secondary inline-flex items-center"
           >
-            View All Products
+            View All Organicorigin Products
             <svg
               className="ml-2 w-4 h-4"
               fill="none"
@@ -121,5 +121,5 @@ const FeaturedProducts: React.FC = () => {
     </section>
   );
 };
-  
+
 export default FeaturedProducts;
