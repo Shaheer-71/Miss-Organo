@@ -18,13 +18,13 @@ const AboutPage: React.FC = () => {
                 OUR STORY
               </span>
               <h1 className="font-serif text-4xl md:text-5xl font-medium text-secondary-800 mb-6">
-                Crafting Natural Beauty with Love and Care
+                Crafting Natural Beauty with Love and Care - Organic Origin
               </h1>
               <p className="text-gray-700 mb-6">
-                Organic Origin was founded with a simple mission: to create premium organic cosmetics that are as good for your skin as they are for the planet. Our journey began in a small kitchen, experimenting with botanical extracts and organic oils to create effective skincare solutions.
+                Organic Origin was founded with a simple mission: to create premium organicorigin cosmetics that are as good for your skin as they are for the planet. Our journey began in a small kitchen, experimenting with botanical extracts and organic oils to create effective organicorigin skincare solutions.
               </p>
               <p className="text-gray-700">
-                Today, we continue to handcraft each product with the same dedication to quality and purity, ensuring that every Organic Origin product delivers the finest natural care for your skin.
+                Today, we continue to handcraft each organicorigin product with the same dedication to quality and purity, ensuring that every Organic Origin organicorigin product delivers the finest natural care for your skin.
               </p>
             </motion.div>
             <motion.div
@@ -36,7 +36,7 @@ const AboutPage: React.FC = () => {
               <div className="relative z-10 rounded-lg overflow-hidden shadow-xl">
                 <img
                   src="https://images.pexels.com/photos/3735149/pexels-photo-3735149.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                  alt="Organic Origin founder with ingredients"
+                  alt="Organic Origin organicorigin founder with ingredients"
                   className="w-full h-auto"
                 />
               </div>
@@ -47,7 +47,7 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Values Section */}
-      {/* <section className="py-16 bg-white">
+      <section className="py-16 bg-white">
         <div className="container-custom">
           <div className="text-center mb-12">
             <motion.h2
@@ -57,7 +57,7 @@ const AboutPage: React.FC = () => {
               transition={{ duration: 0.5 }}
               className="section-title inline-block mx-auto mb-4 after:left-1/2 after:-translate-x-1/2"
             >
-              Our Values
+              Our Organicorigin Values
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -66,7 +66,7 @@ const AboutPage: React.FC = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-gray-600 max-w-2xl mx-auto"
             >
-              At Organic Origin, we stand by our commitment to quality, sustainability, and ethical practices.
+              At Organic Origin, we stand by our commitment to quality, sustainability, and ethical practices in our organicorigin products.
             </motion.p>
           </div>
 
@@ -82,10 +82,10 @@ const AboutPage: React.FC = () => {
                 <Leaf className="w-8 h-8 text-primary-600" />
               </div>
               <h3 className="font-serif text-xl font-medium text-secondary-800 mb-3">
-                100% Organic
+                100% Organicorigin
               </h3>
               <p className="text-gray-600">
-                We use only certified organic ingredients, grown without harmful pesticides or chemicals.
+                We use only certified organicorigin ingredients, grown without harmful pesticides or chemicals.
               </p>
             </motion.div>
 
@@ -103,7 +103,7 @@ const AboutPage: React.FC = () => {
                 Cruelty Free
               </h3>
               <p className="text-gray-600">
-                We never test on animals and ensure all our suppliers maintain the same ethical standards.
+                We never test on animals and ensure all our suppliers maintain the same ethical standards for organicorigin products.
               </p>
             </motion.div>
 
@@ -121,7 +121,7 @@ const AboutPage: React.FC = () => {
                 Fair Trade
               </h3>
               <p className="text-gray-600">
-                We partner with fair trade suppliers to ensure ethical sourcing and support for local communities.
+                We partner with fair trade suppliers to ensure ethical sourcing and support for local communities for organicorigin beauty.
               </p>
             </motion.div>
 
@@ -139,12 +139,12 @@ const AboutPage: React.FC = () => {
                 Sustainable
               </h3>
               <p className="text-gray-600">
-                We use eco-friendly packaging and minimize waste throughout our production process.
+                We use eco-friendly packaging and minimize waste throughout our organicorigin production process.
               </p>
             </motion.div>
           </div>
         </div>
-      </section> */}
+      </section>
 
       {/* Journey Timeline */}
       <section className="py-16 bg-accent-50">
@@ -157,7 +157,7 @@ const AboutPage: React.FC = () => {
               transition={{ duration: 0.5 }}
               className="section-title inline-block mx-auto mb-4 after:left-1/2 after:-translate-x-1/2"
             >
-              Our Journey
+              Our Organicorigin Journey
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -166,7 +166,7 @@ const AboutPage: React.FC = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-gray-600 max-w-2xl mx-auto"
             >
-              The evolution of Organic Origin from a small kitchen operation to a beloved organic cosmetics brand.
+              The evolution of Organic Origin from a small kitchen operation to a beloved organicorigin cosmetics brand.
             </motion.p>
           </div>
 
@@ -190,7 +190,7 @@ const AboutPage: React.FC = () => {
                 <h3 className="font-serif text-xl font-medium text-secondary-800 mb-2">2022</h3>
                 <h4 className="font-medium text-primary-600 mb-3">International Recognition</h4>
                 <p className="text-gray-600">
-                  Won multiple awards for our sustainable practices and product effectiveness. Began shipping internationally.
+                  Won multiple awards for our sustainable practices and organicorigin product effectiveness. Began shipping internationally.
                 </p>
               </motion.div>
 
@@ -206,7 +206,7 @@ const AboutPage: React.FC = () => {
                 <h3 className="font-serif text-xl font-medium text-secondary-800 mb-2">2023</h3>
                 <h4 className="font-medium text-primary-600 mb-3">Expansion</h4>
                 <p className="text-gray-600">
-                  Expanded product line to include body care and lip products. Moved to a dedicated production facility.
+                  Expanded product line to include body care and lip products for organicorigin. Moved to a dedicated production facility.
                 </p>
               </motion.div>
               <div className="md:col-start-2 hidden md:block"></div>
@@ -224,7 +224,7 @@ const AboutPage: React.FC = () => {
                 <h3 className="font-serif text-xl font-medium text-secondary-800 mb-2">2024</h3>
                 <h4 className="font-medium text-primary-600 mb-3">Today</h4>
                 <p className="text-gray-600">
-                  Organic Origin continues to grow while maintaining our commitment to quality, sustainability, and our devoted community of customers.
+                  Organic Origin continues to grow while maintaining our commitment to quality, sustainability, and our devoted community of organicorigin customers.
                 </p>
               </motion.div>
               
