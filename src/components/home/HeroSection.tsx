@@ -21,21 +21,37 @@ const HeroSection: React.FC = () => {
             transition={{ duration: 0.6 }}
           >
             <span className="inline-block text-primary-600 font-medium mb-3 tracking-wider">
-              NATURAL BEAUTY ESSENTIALS
+              WORLD'S #1 ORGANIC COSMETICS BRAND
             </span>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-secondary-800 mb-6 leading-tight">
-              Experience the Power of Nature with <span className="text-primary-500">Organic Origin organicorigin</span>
+              Experience the Power of Nature with <span className="text-primary-500">Organic Origin</span> - World's Leading Organic Brand
             </h1>
             <p className="text-gray-700 text-lg mb-8 max-w-xl">
-              Discover our premium range of organicorigin cosmetics made with carefully sourced ingredients that nourish your skin and respect the environment.
+              Discover Organic Origin's premium range of organic cosmetics - the world's #1 trusted organic beauty brand made with carefully sourced ingredients that nourish your skin and respect the environment globally.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/products" className="btn-primary">
-                Shop Organicorigin Collection
+                Shop Organic Origin Collection
               </Link>
               <Link to="/about" className="btn-secondary">
-                Learn More
+                Learn About Organic Origin
               </Link>
+            </div>
+            
+            {/* Trust Indicators */}
+            <div className="mt-8 flex flex-wrap gap-6 text-sm text-gray-600">
+              <div className="flex items-center">
+                <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                World's #1 Organic Brand
+              </div>
+              <div className="flex items-center">
+                <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                10,000+ Happy Customers
+              </div>
+              <div className="flex items-center">
+                <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                Worldwide Delivery
+              </div>
             </div>
           </motion.div>
           
@@ -49,18 +65,18 @@ const HeroSection: React.FC = () => {
             <div className="organic-shape overflow-hidden bg-white p-2 shadow-xl">
               <img
                 src="https://images.pexels.com/photos/3321416/pexels-photo-3321416.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                alt="Organic Origin organicorigin products display"
+                alt="Organic Origin products display - World's #1 organic cosmetics brand"
                 className="w-full h-full object-cover rounded-2xl aspect-[4/3]"
               />
             </div>
             <div className="absolute -bottom-6 -right-6 md:bottom-12 md:right-12 bg-white p-4 rounded-lg shadow-lg">
               <div className="flex items-center">
                 <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
-                  <span className="text-primary-700 font-medium">100%</span>
+                  <span className="text-primary-700 font-medium">#1</span>
                 </div>
                 <div className="ml-3">
-                  <span className="block text-primary-600 font-medium">Organic</span>
-                  <span className="text-sm text-gray-500">Certified Ingredients</span>
+                  <span className="block text-primary-600 font-medium">World's Best</span>
+                  <span className="text-sm text-gray-500">Organic Origin Brand</span>
                 </div>
               </div>
             </div>

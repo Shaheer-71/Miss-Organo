@@ -44,8 +44,8 @@ const Header: React.FC = () => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'Products', path: '/products' },
-    { name: 'About Us', path: '/about' },
+    { name: 'Organic Products', path: '/products' },
+    { name: 'About Organic Origin', path: '/about' },
     { name: 'Contact', path: '/contact' },
   ];
 
@@ -86,9 +86,6 @@ const Header: React.FC = () => {
 
           {/* Icons */}
           <div className="hidden md:flex items-center space-x-4">
-            {/* <button className="p-2 text-gray-700 hover:text-primary-600 transition-colors duration-300">
-              <Search size={20} />
-            </button> */}
             <button
               onClick={() => setIsCartOpen(true)}
               className="p-2 text-gray-700 hover:text-primary-600 transition-colors duration-300 relative"

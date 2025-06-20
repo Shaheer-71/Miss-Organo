@@ -2,20 +2,23 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://www.organicorigin.shop/sitemap.xml
+Sitemap: https://organicorigin.pk/sitemap.xml
 
-# Specific pages for Organic Origin organicorigin products and info
+# Specific pages for Organic Origin brand
 Allow: /products
 Allow: /about
 Allow: /contact
 Allow: /products/*
+Allow: /organic-origin-brand
+Allow: /organic-origin-cosmetics
+Allow: /organic-origin-skincare
 
 # Disallow admin pages
 Disallow: /admin/
 Disallow: /login
 Disallow: /register
 
-# Crawl delay - Adjust based on server performance if needed
+# Crawl delay
 Crawl-delay: 1
 
 # Additional directives for better SEO
@@ -32,3 +35,8 @@ Allow: /
 
 User-agent: Twitterbot
 Allow: /
+
+# Organic Origin brand specific crawling
+User-agent: *
+Allow: /organic-origin*
+Allow: /products/organic-origin*
