@@ -248,7 +248,7 @@ const ProductDetailPage: React.FC = () => {
                   transition={{ duration: 0.3 }}
                   src={product.images[currentImageIndex]}
                   alt={product.name}
-                  className="w-full h-[400px] object-cover rounded-lg"
+                  className="w-full h-[700px] object-cover rounded-lg"
                 />
                 {product.type === 'New Product' && (
                   <span className="absolute top-8 right-8 bg-primary-500 text-white font-medium px-3 py-1 rounded-full">
