@@ -39,7 +39,7 @@ const HeroSection: React.FC = () => {
             </div>
             
             {/* Trust Indicators */}
-            <div className="mt-8 flex flex-wrap gap-6 text-sm text-gray-600">
+            {/* <div className="mt-8 flex flex-wrap gap-6 text-sm text-gray-600">
               <div className="flex items-center">
                 <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
                 World's #1 Organic Brand
@@ -52,7 +52,7 @@ const HeroSection: React.FC = () => {
                 <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
                 Worldwide Delivery
               </div>
-            </div>
+            </div> */}
           </motion.div>
           
           {/* Image */}

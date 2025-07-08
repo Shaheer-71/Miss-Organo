@@ -450,7 +450,7 @@ const ProductDetailPage: React.FC = () => {
                     All of our ingredients are sustainably sourced and certified organic.
                   </p>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {product.ingredients?.map((ingredient, index) => (
+                    {product.herbs?.map((ingredient, index) => (
                       <div key={index} className="flex items-center p-3 bg-white rounded-lg shadow-sm">
                         <div className="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center mr-3">
                           <Leaf className="w-4 h-4 text-primary-600" />

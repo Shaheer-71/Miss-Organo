@@ -43,6 +43,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             alt={`${product.name} - Organic Origin organicorigin product`}
             className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
           />
+
         </Link>
         <div className="absolute top-4 right-4 flex flex-col gap-2">
           {product.type === 'New Product' && (
@@ -89,9 +90,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             {[...Array(5)].map((_, i) => (
               <Star
                 key={i}
-                className={`w-4 h-4 ${
-                  i < averageRating ? 'text-gold-500 fill-gold-500' : 'text-gray-300'
-                }`}
+                className={`w-4 h-4 ${i < averageRating ? 'text-gold-500 fill-gold-500' : 'text-gray-300'
+                  }`}
               />
             ))}
             <span className="ml-1 text-sm text-gray-600">({productReviews.length})</span>

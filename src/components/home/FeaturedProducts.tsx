@@ -60,7 +60,7 @@ const FeaturedProducts: React.FC = () => {
         </div>
 
         <div className="relative px-0 md:px-12">
-          {canScrollLeft && (
+          {bestSellers.length > 3 && canScrollLeft && (
             <button
               onClick={() => scroll('left')}
               className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center text-gray-700 hover:text-primary-600 transition-colors duration-300"
@@ -70,7 +70,7 @@ const FeaturedProducts: React.FC = () => {
             </button>
           )}
 
-          {canScrollRight && (
+          {bestSellers.length > 3 && canScrollRight && (
             <button
               onClick={() => scroll('right')}
               className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center text-gray-700 hover:text-primary-600 transition-colors duration-300"
