@@ -64,7 +64,8 @@ const HeroSection: React.FC = () => {
           >
             <div className="organic-shape overflow-hidden bg-white p-2 shadow-xl">
               <img
-                src="https://images.pexels.com/photos/3321416/pexels-photo-3321416.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                // src="https://images.pexels.com/photos/3321416/pexels-photo-3321416.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                src="/BG.png"
                 alt="Organic Origin products display - World's #1 organic cosmetics brand"
                 className="w-full h-full object-cover rounded-2xl aspect-[4/3]"
               />
