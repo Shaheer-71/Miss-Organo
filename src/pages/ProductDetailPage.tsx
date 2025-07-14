@@ -18,9 +18,9 @@ const ProductDetailPage: React.FC = () => {
   const product = products.find(p => p.product_id === id);
   const addToCart = useCartStore(state => state.addItem);
   const { reviews, fetchProductReviews } = useReviewStore();
-  
+
   const [quantity, setQuantity] = useState(1);
-  const [activeTab, setActiveTab] = useState('description');
+  const [activeTab, setActiveTab] = useState('benefits');
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isReviewModalOpen, setIsReviewModalOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -38,7 +38,7 @@ const ProductDetailPage: React.FC = () => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
+
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
@@ -88,7 +88,7 @@ const ProductDetailPage: React.FC = () => {
 
   const onTouchEnd = () => {
     if (!touchStart || !touchEnd) return;
-    
+
     const distance = touchStart - touchEnd;
     const isLeftSwipe = distance > minSwipeDistance;
     const isRightSwipe = distance < -minSwipeDistance;
@@ -102,13 +102,13 @@ const ProductDetailPage: React.FC = () => {
   };
 
   const nextImage = () => {
-    setCurrentImageIndex((prev) => 
+    setCurrentImageIndex((prev) =>
       prev === product.images.length - 1 ? 0 : prev + 1
     );
   };
 
   const prevImage = () => {
-    setCurrentImageIndex((prev) => 
+    setCurrentImageIndex((prev) =>
       prev === 0 ? product.images.length - 1 : prev - 1
     );
   };
@@ -194,7 +194,7 @@ const ProductDetailPage: React.FC = () => {
         "value": product.ingredients?.join(", ")
       },
       {
-        "@type": "PropertyValue", 
+        "@type": "PropertyValue",
         "name": "Benefits",
         "value": product.benefits?.join(", ")
       },
@@ -205,7 +205,7 @@ const ProductDetailPage: React.FC = () => {
       }
     ]
   };
-  
+
   return (
     <>
       <Helmet>
@@ -213,7 +213,7 @@ const ProductDetailPage: React.FC = () => {
         <meta name="description" content={`${product.description} Made with 100% natural ingredients. ${product.benefits?.slice(0, 3).join(', ')}. Free delivery in Pakistan.`} />
         <meta name="keywords" content={`${product.name}, organic ${product.categories.join(', ')}, natural ${product.categories[0]}, ${product.ingredients?.slice(0, 5).join(', ')}, organic cosmetics Pakistan, Miss Organo`} />
         <link rel="canonical" href={`https://organicorigin.pk/products/${product.product_id}`} />
-        
+
         {/* Open Graph */}
         <meta property="og:title" content={`${product.name} - Organic ${product.categories[0]} | Organic Origin`} />
         <meta property="og:description" content={product.description} />
@@ -223,7 +223,7 @@ const ProductDetailPage: React.FC = () => {
         <meta property="product:price:amount" content={product.price.toString()} />
         <meta property="product:price:currency" content="PKR" />
         <meta property="product:availability" content={product.stock > 0 ? "in stock" : "out of stock"} />
-        
+
         {/* Structured Data */}
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
@@ -276,7 +276,7 @@ const ProductDetailPage: React.FC = () => {
               className="relative"
             >
               <div className="bg-white p-2 sm:p-4 rounded-lg shadow-sm relative">
-                <div 
+                <div
                   className="relative overflow-hidden rounded-lg aspect-square"
                   onTouchStart={onTouchStart}
                   onTouchMove={onTouchMove}
@@ -296,7 +296,7 @@ const ProductDetailPage: React.FC = () => {
                       NEW
                     </span>
                   )}
-                  
+
                   {/* Image Navigation Buttons */}
                   {product.images.length > 1 && !isMobile && (
                     <>
@@ -325,11 +325,10 @@ const ProductDetailPage: React.FC = () => {
                       <button
                         key={index}
                         onClick={() => goToImage(index)}
-                        className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-colors duration-300 ${
-                          index === currentImageIndex 
-                            ? 'bg-primary-500' 
+                        className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-colors duration-300 ${index === currentImageIndex
+                            ? 'bg-primary-500'
                             : 'bg-gray-300 hover:bg-gray-400'
-                        }`}
+                          }`}
                         aria-label={`Go to image ${index + 1}`}
                       />
                     ))}
@@ -349,15 +348,14 @@ const ProductDetailPage: React.FC = () => {
               <h1 className="font-serif text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-secondary-800 mt-2 mb-4">
                 {product.name}
               </h1>
-              
+
               <div className="flex items-center mb-4">
                 <div className="flex">
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
-                      className={`w-4 h-4 sm:w-5 sm:h-5 ${
-                        i < averageRating ? 'text-gold-500 fill-gold-500' : 'text-gray-300'
-                      }`}
+                      className={`w-4 h-4 sm:w-5 sm:h-5 ${i < averageRating ? 'text-gold-500 fill-gold-500' : 'text-gray-300'
+                        }`}
                     />
                   ))}
                 </div>
@@ -371,17 +369,17 @@ const ProductDetailPage: React.FC = () => {
                   Write a Review
                 </button>
               </div>
-              
+
               <div className="mb-6">
                 <span className="text-xl sm:text-2xl md:text-3xl font-medium text-secondary-800">
                   {formatPrice(product.price)}
                 </span>
               </div>
-              
+
               <p className="text-gray-700 mb-6 sm:mb-8 text-sm sm:text-base leading-relaxed">
                 {product.description}
               </p>
-              
+
               {/* Quantity Selector */}
               <div className="mb-6 sm:mb-8">
                 <label htmlFor="quantity" className="block text-gray-700 mb-2 text-sm sm:text-base font-medium">
@@ -409,7 +407,7 @@ const ProductDetailPage: React.FC = () => {
                   </button>
                 </div>
               </div>
-              
+
               {/* Add to Cart */}
               <div className="flex flex-wrap gap-4 mb-6 sm:mb-8">
                 <button
@@ -420,7 +418,7 @@ const ProductDetailPage: React.FC = () => {
                   Add to Cart
                 </button>
               </div>
-              
+
               {/* Features */}
               <div className="border-t border-gray-200 pt-6 mt-auto">
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -440,66 +438,62 @@ const ProductDetailPage: React.FC = () => {
               </div>
             </motion.div>
           </div>
-          
+
           {/* Product Details Tabs */}
           <div className="mt-12 sm:mt-16">
             <div className="border-b border-gray-200">
               <nav className="flex -mb-px overflow-x-auto">
-                <button
+                {/* <button
                   onClick={() => setActiveTab('description')}
-                  className={`py-3 sm:py-4 px-4 sm:px-6 font-medium text-xs sm:text-sm border-b-2 whitespace-nowrap transition-all duration-300 ${
-                    activeTab === 'description'
+                  className={`py-3 sm:py-4 px-4 sm:px-6 font-medium text-xs sm:text-sm border-b-2 whitespace-nowrap transition-all duration-300 ${activeTab === 'description'
                       ? 'border-primary-500 text-white bg-primary-500 rounded-t-md'
                       : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                  }`}
+                    }`}
                 >
                   Description
-                </button>
-                <button
-                  onClick={() => setActiveTab('ingredients')}
-                  className={`py-3 sm:py-4 px-4 sm:px-6 font-medium text-xs sm:text-sm border-b-2 whitespace-nowrap transition-all duration-300 ${
-                    activeTab === 'ingredients'
-                      ? 'border-primary-500 text-white bg-primary-500 rounded-t-md'
-                      : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                  }`}
-                >
-                  Natural Ingredients
-                </button>
-                <button
-                  onClick={() => setActiveTab('howToUse')}
-                  className={`py-3 sm:py-4 px-4 sm:px-6 font-medium text-xs sm:text-sm border-b-2 whitespace-nowrap transition-all duration-300 ${
-                    activeTab === 'howToUse'
-                      ? 'border-primary-500 text-white bg-primary-500 rounded-t-md'
-                      : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                  }`}
-                >
-                  How to Use
-                </button>
-                <button
+                </button> */}
+                                <button
                   onClick={() => setActiveTab('benefits')}
-                  className={`py-3 sm:py-4 px-4 sm:px-6 font-medium text-xs sm:text-sm border-b-2 whitespace-nowrap transition-all duration-300 ${
-                    activeTab === 'benefits'
+                  className={`py-3 sm:py-4 px-4 sm:px-6 font-medium text-xs sm:text-sm border-b-2 whitespace-nowrap transition-all duration-300 ${activeTab === 'benefits'
                       ? 'border-primary-500 text-white bg-primary-500 rounded-t-md'
                       : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                  }`}
+                    }`}
                 >
                   Benefits
                 </button>
                 <button
-                  onClick={() => setActiveTab('reviews')}
-                  className={`py-3 sm:py-4 px-4 sm:px-6 font-medium text-xs sm:text-sm border-b-2 whitespace-nowrap transition-all duration-300 ${
-                    activeTab === 'reviews'
+                  onClick={() => setActiveTab('ingredients')}
+                  className={`py-3 sm:py-4 px-4 sm:px-6 font-medium text-xs sm:text-sm border-b-2 whitespace-nowrap transition-all duration-300 ${activeTab === 'ingredients'
                       ? 'border-primary-500 text-white bg-primary-500 rounded-t-md'
                       : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                  }`}
+                    }`}
+                >
+                  Ingredients
+                </button>
+                <button
+                  onClick={() => setActiveTab('howToUse')}
+                  className={`py-3 sm:py-4 px-4 sm:px-6 font-medium text-xs sm:text-sm border-b-2 whitespace-nowrap transition-all duration-300 ${activeTab === 'howToUse'
+                      ? 'border-primary-500 text-white bg-primary-500 rounded-t-md'
+                      : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                    }`}
+                >
+                  How to Use
+                </button>
+
+                <button
+                  onClick={() => setActiveTab('reviews')}
+                  className={`py-3 sm:py-4 px-4 sm:px-6 font-medium text-xs sm:text-sm border-b-2 whitespace-nowrap transition-all duration-300 ${activeTab === 'reviews'
+                      ? 'border-primary-500 text-white bg-primary-500 rounded-t-md'
+                      : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                    }`}
                 >
                   Customer Reviews ({productReviews.length})
                 </button>
               </nav>
             </div>
-            
+
             <div className="py-6 sm:py-8">
-              {activeTab === 'description' && (
+              {/* {activeTab === 'description' && (
                 <div>
                   <h3 className="font-serif text-lg sm:text-xl font-medium text-secondary-800 mb-4">
                     Organic Product Description
@@ -510,47 +504,8 @@ const ProductDetailPage: React.FC = () => {
                     combined with modern organic standards to ensure the highest quality and effectiveness.
                   </p>
                 </div>
-              )}
-              
-              {activeTab === 'ingredients' && (
-                <div>
-                  <h3 className="font-serif text-lg sm:text-xl font-medium text-secondary-800 mb-4">
-                    100% Natural Organic Ingredients
-                  </h3>
-                  <p className="text-gray-700 mb-6 text-sm sm:text-base">
-                    All of our ingredients are sustainably sourced from certified organic farms across Pakistan and are completely natural.
-                  </p>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {product.ingredients?.map((ingredient, index) => (
-                      <div key={index} className="flex items-center p-3 bg-white rounded-lg shadow-sm">
-                        <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-primary-100 flex items-center justify-center mr-3">
-                          <Leaf className="w-3 h-3 sm:w-4 sm:h-4 text-primary-600" />
-                        </div>
-                        <span className="text-gray-700 text-sm sm:text-base">{ingredient}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-              
-              {activeTab === 'howToUse' && (
-                <div>
-                  <h3 className="font-serif text-lg sm:text-xl font-medium text-secondary-800 mb-4">
-                    How to Use This Organic Product
-                  </h3>
-                  <div className="space-y-4">
-                    {product.how_to_use?.map((step, index) => (
-                      <div key={index} className="flex items-start">
-                        <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-primary-100 flex items-center justify-center mr-3 flex-shrink-0">
-                          <span className="text-primary-600 font-medium text-sm sm:text-base">{index + 1}</span>
-                        </div>
-                        <p className="text-gray-700 text-sm sm:text-base">{step}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-              
+              )} */}
+
               {activeTab === 'benefits' && (
                 <div>
                   <h3 className="font-serif text-lg sm:text-xl font-medium text-secondary-800 mb-4">
@@ -568,6 +523,46 @@ const ProductDetailPage: React.FC = () => {
                   </div>
                 </div>
               )}
+
+              {activeTab === 'ingredients' && (
+                <div>
+                  <h3 className="font-serif text-lg sm:text-xl font-medium text-secondary-800 mb-4">
+                    100% Natural Organic Ingredients
+                  </h3>
+                  <p className="text-gray-700 mb-6 text-sm sm:text-base">
+                    All of our ingredients are sustainably sourced from certified organic farms across Pakistan and are completely natural.
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {product.herbs?.map((ingredient, index) => (
+                      <div key={index} className="flex items-center p-3 bg-white rounded-lg shadow-sm">
+                        <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-primary-100 flex items-center justify-center mr-3">
+                          <Leaf className="w-3 h-3 sm:w-4 sm:h-4 text-primary-600" />
+                        </div>
+                        <span className="text-gray-700 text-sm sm:text-base">{ingredient}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {activeTab === 'howToUse' && (
+                <div>
+                  <h3 className="font-serif text-lg sm:text-xl font-medium text-secondary-800 mb-4">
+                    How to Use This Organic Product
+                  </h3>
+                  <div className="space-y-4">
+                    {product.how_to_use?.map((step, index) => (
+                      <div key={index} className="flex items-start">
+                        <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-primary-100 flex items-center justify-center mr-3 flex-shrink-0">
+                          <span className="text-primary-600 font-medium text-sm sm:text-base">{index + 1}</span>
+                        </div>
+                        <p className="text-gray-700 text-sm sm:text-base">{step}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
 
               {activeTab === 'reviews' && (
                 <div>
