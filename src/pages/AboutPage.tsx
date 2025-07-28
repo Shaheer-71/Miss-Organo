@@ -1,11 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Leaf, ShieldCheck, HeartHandshake, BadgeCheck } from 'lucide-react';
+import CallToChat from '../components/common/CallToChat';
 
 const AboutPage: React.FC = () => {
   return (
     <div className="pt-24 pb-16 bg-gradient-to-b from-primary-50 to-accent-50">
       {/* Hero Section */}
+
+      <CallToChat/>
       <section className=" py-16">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">

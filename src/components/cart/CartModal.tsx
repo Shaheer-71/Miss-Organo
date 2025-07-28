@@ -54,12 +54,12 @@ const CartModal: React.FC<CartModalProps> = ({ isOpen, onClose }) => {
   // }, 0);
 
   const subtotal = cartItems.reduce((total, item) => {
-    if (!item.product) return total; // Skip items with no product
+    if (!item.product) return total;
     const itemTotal = item.product.price * item.quantity;
     return total + itemTotal;
   }, 0);
 
-  const total = subtotal + SHIPPING_COST;
+  const total = subtotal + (subtotal < 3000 ? SHIPPING_COST : 0);
 
   const handleCheckout = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -197,7 +197,7 @@ const CartModal: React.FC<CartModalProps> = ({ isOpen, onClose }) => {
                     </div>
                     <div className="flex justify-between text-gray-600">
                       <span>Shipping</span>
-                      <span>{formatPrice(SHIPPING_COST)}</span>
+                      <span>{total > 3000 ? 0 : formatPrice(SHIPPING_COST)}</span>
                     </div>
                     <div className="flex justify-between text-xl font-serif font-medium text-secondary-800 pt-4 border-t">
                       <span>Total</span>

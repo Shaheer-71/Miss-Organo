@@ -35,11 +35,17 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       <div className="card group cursor-pointer">
         {/* Product Image */}
         <div className="relative overflow-hidden aspect-square">
-          <LazyImage
-            src={product.images[0]}
-            alt={product.name}
-            className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-500"
-          />
+          <div className="relative aspect-square bg-white flex items-center justify-center overflow-hidden p-4">
+            <LazyImage
+              src={product.images[0]}
+              alt={product.name}
+              className="block object-contain max-w-full max-h-full mx-auto my-auto"
+              // styles={{ display: 'block' }}
+            />
+          </div>
+
+
+
           <div className="absolute top-4 right-4 flex flex-col gap-2">
             {product.type === 'New Product' && (
               <span className="bg-primary-500 text-white text-xs font-medium px-2 py-1 rounded">
@@ -83,9 +89,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
               {[...Array(5)].map((_, i) => (
                 <Star
                   key={i}
-                  className={`w-3 h-3 sm:w-4 sm:h-4 ${
-                    i < averageRating ? 'text-gold-500 fill-gold-500' : 'text-gray-300'
-                  }`}
+                  className={`w-3 h-3 sm:w-4 sm:h-4 ${i < averageRating ? 'text-gold-500 fill-gold-500' : 'text-gray-300'
+                    }`}
                 />
               ))}
               <span className="ml-1 text-xs sm:text-sm text-gray-600">({productReviews.length})</span>

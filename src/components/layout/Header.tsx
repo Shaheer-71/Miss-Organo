@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, ShoppingBag, Search, Leaf, User, LogOut } from 'lucide-react';
+import { Menu, X, ShoppingBag, Leaf, User, LogOut } from 'lucide-react';
 import useAuthStore from '../../store/authStore';
 import useCartStore from '../../store/cartStore';
 import CartModal from '../cart/CartModal';
@@ -43,9 +43,9 @@ const Header: React.FC = () => {
   };
 
   const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'Organic Products', path: '/products' },
-    { name: 'About Organic Origin', path: '/about' },
+    { name: 'Home', path: '/home' },
+    { name: 'Products', path: '/' },
+    { name: 'About Us', path: '/about' },
     { name: 'Contact', path: '/contact' },
   ];
 

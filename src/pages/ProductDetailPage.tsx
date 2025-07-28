@@ -10,14 +10,19 @@ import CartModal from '../components/cart/CartModal';
 import ReviewModal from '../components/reviews/ReviewModal';
 import ReviewList from '../components/reviews/ReviewList';
 import LoadingSpinner from '../components/common/LoadingSpinner';
+import ProductCard from '../components/products/ProductCard';
+import ProductFilters from '../components/products/ProductFilters';
+import { Product } from '../types';
 
 const ProductDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const products = useProductStore(state => state.products);
-  const { isLoading } = useProductStore();
+  // const products = useProductStore(state => state.products);
+  // const { isLoading } = useProductStore();
+  const { reviews, fetchProductReviews } = useReviewStore();
+  const { products, isLoading, error, fetchProducts } = useProductStore();
   const product = products.find(p => p.product_id === id);
   const addToCart = useCartStore(state => state.addItem);
-  const { reviews, fetchProductReviews } = useReviewStore();
+
 
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState('benefits');
@@ -27,6 +32,21 @@ const ProductDetailPage: React.FC = () => {
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
+
+
+
+
+  useEffect(() => {
+    fetchProducts();
+  }, [fetchProducts]);
+
+  useEffect(() => {
+    // Fetch reviews for all products
+    products.forEach(product => {
+      fetchProductReviews(product.product_id);
+    });
+  }, [products, fetchProductReviews]);
+
 
   useEffect(() => {
     if (id) {
@@ -289,8 +309,9 @@ const ProductDetailPage: React.FC = () => {
                     transition={{ duration: 0.3 }}
                     src={product.images[currentImageIndex]}
                     alt={`${product.name} - Organic ${product.categories[0]} by Organic Origin`}
-                    className="w-full h-full object-cover object-center"
+                    className="w-auto h-full max-h-full mx-auto object-contain"
                   />
+
                   {product.type === 'New Product' && (
                     <span className="absolute top-4 sm:top-6 right-4 sm:right-6 bg-primary-500 text-white font-medium px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">
                       NEW
@@ -326,8 +347,8 @@ const ProductDetailPage: React.FC = () => {
                         key={index}
                         onClick={() => goToImage(index)}
                         className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-colors duration-300 ${index === currentImageIndex
-                            ? 'bg-primary-500'
-                            : 'bg-gray-300 hover:bg-gray-400'
+                          ? 'bg-primary-500'
+                          : 'bg-gray-300 hover:bg-gray-400'
                           }`}
                         aria-label={`Go to image ${index + 1}`}
                       />
@@ -452,11 +473,11 @@ const ProductDetailPage: React.FC = () => {
                 >
                   Description
                 </button> */}
-                                <button
+                <button
                   onClick={() => setActiveTab('benefits')}
                   className={`py-3 sm:py-4 px-4 sm:px-6 font-medium text-xs sm:text-sm border-b-2 whitespace-nowrap transition-all duration-300 ${activeTab === 'benefits'
-                      ? 'border-primary-500 text-white bg-primary-500 rounded-t-md'
-                      : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                    ? 'border-primary-500 text-white bg-primary-500 rounded-t-md'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                     }`}
                 >
                   Benefits
@@ -464,8 +485,8 @@ const ProductDetailPage: React.FC = () => {
                 <button
                   onClick={() => setActiveTab('ingredients')}
                   className={`py-3 sm:py-4 px-4 sm:px-6 font-medium text-xs sm:text-sm border-b-2 whitespace-nowrap transition-all duration-300 ${activeTab === 'ingredients'
-                      ? 'border-primary-500 text-white bg-primary-500 rounded-t-md'
-                      : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                    ? 'border-primary-500 text-white bg-primary-500 rounded-t-md'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                     }`}
                 >
                   Ingredients
@@ -473,8 +494,8 @@ const ProductDetailPage: React.FC = () => {
                 <button
                   onClick={() => setActiveTab('howToUse')}
                   className={`py-3 sm:py-4 px-4 sm:px-6 font-medium text-xs sm:text-sm border-b-2 whitespace-nowrap transition-all duration-300 ${activeTab === 'howToUse'
-                      ? 'border-primary-500 text-white bg-primary-500 rounded-t-md'
-                      : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                    ? 'border-primary-500 text-white bg-primary-500 rounded-t-md'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                     }`}
                 >
                   How to Use
@@ -483,8 +504,8 @@ const ProductDetailPage: React.FC = () => {
                 <button
                   onClick={() => setActiveTab('reviews')}
                   className={`py-3 sm:py-4 px-4 sm:px-6 font-medium text-xs sm:text-sm border-b-2 whitespace-nowrap transition-all duration-300 ${activeTab === 'reviews'
-                      ? 'border-primary-500 text-white bg-primary-500 rounded-t-md'
-                      : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                    ? 'border-primary-500 text-white bg-primary-500 rounded-t-md'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                     }`}
                 >
                   Customer Reviews ({productReviews.length})
@@ -582,6 +603,20 @@ const ProductDetailPage: React.FC = () => {
               )}
             </div>
           </div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="product-grid"
+          >
+            {products.map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+              />
+            ))}
+          </motion.div>
         </div>
       </div>
 

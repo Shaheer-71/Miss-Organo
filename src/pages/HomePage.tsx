@@ -6,6 +6,7 @@ import BrandStory from '../components/home/BrandStory';
 import Testimonials from '../components/home/Testimonials';
 import { motion } from 'framer-motion';
 import { Leaf, ShieldCheck, Sprout, Recycle } from 'lucide-react';
+import CallToChat from '../components/common/CallToChat';
 
 const HomePage: React.FC = () => {
   const structuredData = {
@@ -143,7 +144,7 @@ const HomePage: React.FC = () => {
         <meta name="description" content="🌿 Organic Origin - The World's Leading Premium Organic Cosmetics Brand! 100% Natural Skincare, Lip Care, Hair Care & Body Care Products. ✅ Cruelty-Free ✅ Dermatologically Tested ✅ Free Delivery Worldwide. Shop Premium Organic Beauty Products Now! #1 Trusted Organic Origin Brand Globally." />
         <meta name="keywords" content="Organic Origin, organic origin brand, organic origin cosmetics, organic origin skincare, organic origin products, organic origin official, organic origin website, organic origin company, organic origin beauty, organic origin natural, organic origin premium, organic origin worldwide, organic origin global, organic origin international, organic origin best, organic origin top, organic origin number one, organic origin #1, world's best organic cosmetics, premium organic skincare, natural beauty products, herbal cosmetics, organic lip care, natural hair care, organic body care, cruelty free cosmetics, organic makeup, eco-friendly beauty products, sustainable cosmetics, organic face care, natural anti-aging products, organic moisturizer, natural face serum" />
         <link rel="canonical" href="https://organicorigin.pk" />
-        
+
         {/* Open Graph */}
         <meta property="og:title" content="Organic Origin - World's #1 Premium Organic Cosmetics Brand | 100% Natural Skincare 🌿" />
         <meta property="og:description" content="🌿 Organic Origin - The World's Leading Premium Organic Cosmetics Brand! 100% Natural Skincare Products made with organic ingredients. ✅ Cruelty-Free ✅ Free Delivery Worldwide. Shop Now!" />
@@ -151,11 +152,11 @@ const HomePage: React.FC = () => {
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://organicorigin.pk/og-image.jpg" />
         <meta property="og:locale" content="en_US" />
-        
+
         {/* Twitter */}
         <meta name="twitter:title" content="Organic Origin - World's #1 Organic Cosmetics Brand 🌿" />
         <meta name="twitter:description" content="Premium natural skincare & beauty products made with 100% organic ingredients. Free delivery worldwide!" />
-        
+
         {/* Additional SEO Meta Tags */}
         <meta name="geo.region" content="Global" />
         <meta name="geo.placename" content="Worldwide" />
@@ -164,12 +165,12 @@ const HomePage: React.FC = () => {
         <meta name="audience" content="beauty enthusiasts, organic product users, skincare lovers, natural beauty seekers worldwide" />
         <meta name="page-topic" content="Organic Origin - World's #1 organic cosmetics brand, natural skincare products" />
         <meta name="subject" content="Organic Origin - World's #1 premium organic cosmetics and natural beauty products globally" />
-        
+
         {/* Structured Data */}
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
         </script>
-        
+
         {/* FAQ Structured Data */}
         <script type="application/ld+json">
           {JSON.stringify(faqStructuredData)}
@@ -178,11 +179,11 @@ const HomePage: React.FC = () => {
 
       <div>
         <HeroSection />
-        
+
         <div className="w-full h-px " />
-        
         {/* Benefits Section */}
         <section className="py-16 bg-gradient-to-b from-primary-50 to-accent-50">
+          <CallToChat/>
           <div className="container-custom">
             <div className="text-center mb-12">
               <h2 className="section-title inline-block mx-auto mb-4 after:left-1/2 after:-translate-x-1/2">

@@ -1,10 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
+import CallToChat from '../components/common/CallToChat';
 
 const ContactPage: React.FC = () => {
   return (
     <div className="pt-24 pb-16 bg-gradient-to-b from-primary-50 to-accent-50">
+      <CallToChat/>
       <div className="container-custom">
         <div className="text-center mb-12">
           <motion.h1

@@ -7,6 +7,7 @@ import useProductStore from '../store/productStore';
 import useReviewStore from '../store/reviewStore';
 import LoadingSpinner from '../components/common/LoadingSpinner';
 import { Product } from '../types';
+import CallToChat from '../components/common/CallToChat';
 
 const categories = ['Skin Care', 'Lip Care', 'Hair Care', 'Body Care'];
 
@@ -270,6 +271,8 @@ const ProductsPage: React.FC = () => {
                   ))}
                 </motion.div>
               )}
+
+              <CallToChat/>
             </div>
           </div>
         </div>

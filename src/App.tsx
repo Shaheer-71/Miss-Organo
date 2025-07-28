@@ -107,7 +107,7 @@ function App() {
       <Routes>
         {/* Public Routes */}
         <Route
-          path="/"
+          path="/home"
           element={
             <CustomerRoute>
               <>
@@ -121,7 +121,7 @@ function App() {
           }
         />
         <Route
-          path="/products"
+          path="/"
           element={
             <CustomerRoute>
               <>
