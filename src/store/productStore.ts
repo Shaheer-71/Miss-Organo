@@ -28,8 +28,10 @@ const useProductStore = create<ProductState>()(
         set({ isLoading: true, error: null });
         try {
           const products = await productService.getProducts();
+          console.log('Fetched products:', products); // Debug log
           set({ products, isLoading: false });
         } catch (error) {
+          console.error('Error fetching products:', error); // Debug log
           set({ error: (error as Error).message, isLoading: false });
         }
       },

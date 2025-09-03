@@ -14,6 +14,7 @@ export const productService = {
       .eq('is_active', true)
       .order('created_at', { ascending: false });
 
+    console.log('Supabase response:', { data, error }); // Debug log
     if (error) throw error;
     return data;
   },

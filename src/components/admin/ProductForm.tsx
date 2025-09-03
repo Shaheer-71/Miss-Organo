@@ -37,7 +37,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, onSubmit, onClose })
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target;
     const checked = type === 'checkbox' ? (e.target as HTMLInputElement).checked : undefined;
-    
+
     setFormData(prev => ({
       ...prev,
       [name]: checked !== undefined ? checked : value
@@ -67,7 +67,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, onSubmit, onClose })
 
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files?.length) return;
-    
+
     setIsUploading(true);
     const files = Array.from(e.target.files);
     const uploadedUrls: string[] = [];
@@ -180,32 +180,30 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, onSubmit, onClose })
             </div>
           </div>
 
-          {/* Images */}
+          {/* Images & Videos (treated identically) */}
           <div>
-            <label className="block text-gray-700 mb-2">Images</label>
+            <label className="block text-gray-700 mb-2">Images / Videos</label>
             <div className="space-y-4">
               <div className="flex gap-4">
                 <button
                   type="button"
                   onClick={() => handleImageMethodChange('url')}
-                  className={`px-4 py-2 rounded-md ${
-                    imageUploadMethod === 'url' 
-                      ? 'bg-primary-500 text-white' 
+                  className={`px-4 py-2 rounded-md ${imageUploadMethod === 'url'
+                      ? 'bg-primary-500 text-white'
                       : 'bg-gray-100 text-gray-700'
-                  }`}
+                    }`}
                 >
                   Enter URL
                 </button>
                 <button
                   type="button"
                   onClick={() => handleImageMethodChange('upload')}
-                  className={`px-4 py-2 rounded-md ${
-                    imageUploadMethod === 'upload' 
-                      ? 'bg-primary-500 text-white' 
+                  className={`px-4 py-2 rounded-md ${imageUploadMethod === 'upload'
+                      ? 'bg-primary-500 text-white'
                       : 'bg-gray-100 text-gray-700'
-                  }`}
+                    }`}
                 >
-                  Upload Image
+                  Upload File
                 </button>
               </div>
 
@@ -215,7 +213,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, onSubmit, onClose })
                     type="url"
                     value={newImage}
                     onChange={(e) => setNewImage(e.target.value)}
-                    placeholder="Enter image URL"
+                    placeholder="Enter image or video URL"
                     className="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-400"
                   />
                   <button
@@ -223,7 +221,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, onSubmit, onClose })
                     onClick={() => handleArrayAdd('images', newImage, setNewImage)}
                     className="px-4 py-2 bg-primary-500 text-white rounded-md hover:bg-primary-600"
                   >
-                    Add Image
+                    Add
                   </button>
                 </div>
               ) : (
@@ -231,7 +229,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, onSubmit, onClose })
                   <input
                     type="file"
                     multiple
-                    accept="image/*"
+                    accept="image/*,video/*"
                     onChange={handleFileUpload}
                     className="block w-full text-sm text-gray-500
                       file:mr-4 file:py-2 file:px-4
@@ -241,21 +239,28 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, onSubmit, onClose })
                       hover:file:bg-primary-100"
                   />
                   {isUploading && (
-                    <div className="text-center text-gray-600">
-                      Uploading images...
-                    </div>
+                    <div className="text-center text-gray-600">Uploading…</div>
                   )}
                 </div>
               )}
 
+              {/* Preview grid */}
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {formData.images.map((image, index) => (
+                {formData.images.map((url, index) => (
                   <div key={index} className="relative">
-                    <img
-                      src={image}
-                      alt={`Product ${index + 1}`}
-                      className="w-full h-40 object-cover rounded-lg"
-                    />
+                    {url.match(/\.(mp4|webm|ogg)$/i) ? (
+                      <video
+                        src={url}
+                        controls
+                        className="w-full h-40 object-cover rounded-lg"
+                      />
+                    ) : (
+                      <img
+                        src={url}
+                        alt={`Product ${index + 1}`}
+                        className="w-full h-40 object-cover rounded-lg"
+                      />
+                    )}
                     <button
                       type="button"
                       onClick={() => handleArrayRemove('images', index)}

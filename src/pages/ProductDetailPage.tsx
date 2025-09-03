@@ -16,13 +16,10 @@ import { Product } from '../types';
 
 const ProductDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  // const products = useProductStore(state => state.products);
-  // const { isLoading } = useProductStore();
   const { reviews, fetchProductReviews } = useReviewStore();
   const { products, isLoading, error, fetchProducts } = useProductStore();
   const product = products.find(p => p.product_id === id);
   const addToCart = useCartStore(state => state.addItem);
-
 
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState('benefits');
@@ -32,9 +29,7 @@ const ProductDetailPage: React.FC = () => {
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
-
-
-
+  const [mediaType, setMediaType] = useState<'image' | 'video'>('image');
 
   useEffect(() => {
     fetchProducts();
@@ -46,7 +41,6 @@ const ProductDetailPage: React.FC = () => {
       fetchProductReviews(product.product_id);
     });
   }, [products, fetchProductReviews]);
-
 
   useEffect(() => {
     if (id) {
@@ -63,6 +57,21 @@ const ProductDetailPage: React.FC = () => {
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  useEffect(() => {
+    if (!product || !product.images || !product.images.length) return;
+
+    const currentMedia = product.images[currentImageIndex];
+    if (!currentMedia) return;
+
+    const isVideo =
+      currentMedia.includes('.mp4') ||
+      currentMedia.includes('.webm') ||
+      currentMedia.includes('.mov') ||
+      currentMedia.includes('video');
+
+    setMediaType(isVideo ? 'video' : 'image');
+  }, [currentImageIndex, product]);
 
   if (isLoading) {
     return (
@@ -288,7 +297,7 @@ const ProductDetailPage: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12">
-            {/* Product Image */}
+            {/* Product Image/Video */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -302,18 +311,36 @@ const ProductDetailPage: React.FC = () => {
                   onTouchMove={onTouchMove}
                   onTouchEnd={onTouchEnd}
                 >
-                  <motion.img
-                    key={currentImageIndex}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3 }}
-                    src={product.images[currentImageIndex]}
-                    alt={`${product.name} - Organic ${product.categories[0]} by Organic Origin`}
-                    className="w-auto h-full max-h-full mx-auto object-contain"
-                  />
+                  {mediaType === 'video' ? (
+                    <motion.video
+                      key={currentImageIndex}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                      src={product.images[currentImageIndex]}
+                      className="w-auto h-full max-h-full mx-auto object-contain"
+                      controls
+                      muted
+                      playsInline
+                      preload="metadata"
+                      onLoadStart={() => console.log('Video loading started')}
+                      onCanPlay={() => console.log('Video can play')}
+                      onError={(e) => console.error('Video error:', e)}
+                    />
+                  ) : (
+                    <motion.img
+                      key={currentImageIndex}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                      src={product.images[currentImageIndex]}
+                      alt={`${product.name} - Organic ${product.categories[0]} by Organic Origin`}
+                      className="w-auto h-full max-h-full mx-auto object-contain"
+                    />
+                  )}
 
                   {product.type === 'New Product' && (
-                    <span className="absolute top-4 sm:top-6 right-4 sm:right-6 bg-primary-500 text-white font-medium px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">
+                    <span className="absolute top-4 sm:top-6 right-4 sm:right-6 bg-primary-500 text-white font-medium px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm z-10">
                       NEW
                     </span>
                   )}
@@ -323,14 +350,14 @@ const ProductDetailPage: React.FC = () => {
                     <>
                       <button
                         onClick={prevImage}
-                        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 bg-white/80 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center text-gray-700 hover:text-primary-600 transition-colors duration-300"
+                        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 bg-white/80 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center text-gray-700 hover:text-primary-600 transition-colors duration-300 z-10"
                         aria-label="Previous image"
                       >
                         <ChevronLeft className="w-4 h-4 sm:w-6 sm:h-6" />
                       </button>
                       <button
                         onClick={nextImage}
-                        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 bg-white/80 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center text-gray-700 hover:text-primary-600 transition-colors duration-300"
+                        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 bg-white/80 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center text-gray-700 hover:text-primary-600 transition-colors duration-300 z-10"
                         aria-label="Next image"
                       >
                         <ChevronRight className="w-4 h-4 sm:w-6 sm:h-6" />
@@ -464,15 +491,6 @@ const ProductDetailPage: React.FC = () => {
           <div className="mt-12 sm:mt-16">
             <div className="border-b border-gray-200">
               <nav className="flex -mb-px overflow-x-auto">
-                {/* <button
-                  onClick={() => setActiveTab('description')}
-                  className={`py-3 sm:py-4 px-4 sm:px-6 font-medium text-xs sm:text-sm border-b-2 whitespace-nowrap transition-all duration-300 ${activeTab === 'description'
-                      ? 'border-primary-500 text-white bg-primary-500 rounded-t-md'
-                      : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                    }`}
-                >
-                  Description
-                </button> */}
                 <button
                   onClick={() => setActiveTab('benefits')}
                   className={`py-3 sm:py-4 px-4 sm:px-6 font-medium text-xs sm:text-sm border-b-2 whitespace-nowrap transition-all duration-300 ${activeTab === 'benefits'
@@ -500,7 +518,6 @@ const ProductDetailPage: React.FC = () => {
                 >
                   How to Use
                 </button>
-
                 <button
                   onClick={() => setActiveTab('reviews')}
                   className={`py-3 sm:py-4 px-4 sm:px-6 font-medium text-xs sm:text-sm border-b-2 whitespace-nowrap transition-all duration-300 ${activeTab === 'reviews'
@@ -514,19 +531,6 @@ const ProductDetailPage: React.FC = () => {
             </div>
 
             <div className="py-6 sm:py-8">
-              {/* {activeTab === 'description' && (
-                <div>
-                  <h3 className="font-serif text-lg sm:text-xl font-medium text-secondary-800 mb-4">
-                    Organic Product Description
-                  </h3>
-                  <p className="text-gray-700 mb-4 text-sm sm:text-base">{product.description}</p>
-                  <p className="text-gray-700 text-sm sm:text-base">
-                    This organic {product.categories[0].toLowerCase()} product is carefully crafted using traditional methods 
-                    combined with modern organic standards to ensure the highest quality and effectiveness.
-                  </p>
-                </div>
-              )} */}
-
               {activeTab === 'benefits' && (
                 <div>
                   <h3 className="font-serif text-lg sm:text-xl font-medium text-secondary-800 mb-4">
@@ -583,7 +587,6 @@ const ProductDetailPage: React.FC = () => {
                   </div>
                 </div>
               )}
-
 
               {activeTab === 'reviews' && (
                 <div>

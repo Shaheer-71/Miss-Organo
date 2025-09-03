@@ -10,6 +10,7 @@ export interface Product {
   categories: string[];
   images: string[];
   herbs: string[];
+  videos?: string[];
   ingredients: string[];
   benefits: string[];
   type: 'Featured Product' | 'Best Seller' | 'New Product' | null;
